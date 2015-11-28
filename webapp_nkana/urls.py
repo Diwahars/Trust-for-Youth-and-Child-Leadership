@@ -19,5 +19,7 @@ from django.contrib import admin
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^volunteer/', include('volunteer.urls')),
+    url(r'^logout/$', 'django.contrib.auth.views.logout'),
+    url(r'^login/$', 'webapp_nkana.views.app_login'),
     url(r'^$', 'webapp_nkana.views.index', name='index'),
 ]

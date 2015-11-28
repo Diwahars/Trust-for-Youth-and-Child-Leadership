@@ -37,6 +37,10 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+    'child',
+    'mentor',
+    'volunteer'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -55,7 +59,7 @@ ROOT_URLCONF = 'webapp_nkana.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['/Users/kaselvaraj/Projects/Trust-for-Youth-and-Child-Leadership/webapp_nkana/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -100,3 +104,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
 STATIC_URL = '/static/'
+
+SITE_ROOT = os.path.abspath(os.path.join(BASE_DIR, 'webapp_nkana', 'static'))
+STATICFILES_DIRS = (
+  SITE_ROOT, '/Users/kaselvaraj/Projects/Trust-for-Youth-and-Child-Leadership/webapp_nkana/static'
+)

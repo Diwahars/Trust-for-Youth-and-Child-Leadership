@@ -1,0 +1,83 @@
+
+{% extends "base.html" %}
+
+{% block head_content %}
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'volunteer/css/profile.css' %}" charset="utf-8"></script>
+{% endblock %}
+
+{% block content %}
+
+<div class="form-style-10">
+        <img src="{% static 'volunteer/images/blackboard-02.jpeg' %}" class="form-bg-img">
+        <!--<h1>Sign Up Now!<span>Sign up and tell us what you think of the site!</span></h1>-->
+        <form class="form-register" action='/volunteer/profile/' method="POST">
+           <div class="pull-left form-blocks form-left"> <div class="section">Your Full Name / பெயர்</div>
+            <div class="inner-wrap">
+                 <input type="text" name="field1" />
+                <!--<label>Address <textarea name="field2" rows="5"></textarea></label>-->
+            </div>
+            </div>
+
+            <div class="pull-left form-blocks">
+                <div class="section">Email / மின்னஞ்சல்</div>
+                <div class="inner-wrap">
+                    <input type="email" name="field3" />
+
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="pull-left form-blocks form-left">
+                <div class="section">Phone / தொலைபேசி</div>
+                <div class="inner-wrap">
+                    <input type="text" name="field4" />
+                </div>
+            </div>
+            <div class="pull-left form-blocks">
+                <div class="section">Address / முகவரி</div>
+                <div class="inner-wrap">
+                    <textarea name="field2" rows="3"></textarea>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+
+            <div class="pull-left form-blocks form-left">
+                <div class="section">DOB / பிறந்த தேதி</div>
+                <div class="inner-wrap">
+                    <input type="text" name="field3" />
+                    <!--<span class="glyphicon glyphicon-calendar"></span>-->
+                </div>
+            </div>
+            <div class="pull-left form-blocks">
+                <div class="section">Gender / பாலினம்</div>
+                <div class="inner-wrap">
+                    <input type="text" name="field3" />
+                </div>
+            </div>
+            <div class="clearfix"></div>
+
+            <div class="pull-left form-blocks form-left">
+                <div class="section">Class / வகுப்பு</div>
+                <div class="inner-wrap">
+                    <input type="text" name="field3" />
+                </div>
+            </div>
+            <div class="pull-left form-blocks">
+                <div class="section">Name of the Insitution / வகுப்பு</div>
+                <div class="inner-wrap">
+                   <input type="text" name="field4" />
+                </div>
+            </div>
+
+            <div class="clearfix"></div>
+                <span class="privacy-policy">
+             <input type="checkbox" name="field7">You agree to our Terms and Policy.
+             </span>
+            <div class="button-section">
+             <input type="submit" name="Sign Up" />
+
+            </div>
+        </form>
+    </div>
+
+{% endblock %}
