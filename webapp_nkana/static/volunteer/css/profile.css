@@ -8,14 +8,14 @@
 	    margin-right: 80px;
 }
 .form-register{
-	    margin: 30px auto;
+	margin: 30px auto;
     width: 730px;
     position:relative;
     z-index:1;
 }
 .form-bg-img{
 position:absolute;left:0;top:0;width:960px;
-height:518px;z-index:0;
+height:650px;z-index:0;
 
 }
 .privacy-policy > input {
@@ -135,14 +135,37 @@ position:relative;
     box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.28);
 }
 .form-style-10 .privacy-policy{
-   /* float: right; */
-    width: 250px;
+   /* float: right;
+    width: 250px;  */
     /* font: 12px Arial, Helvetica, sans-serif; */
     color: #fff;
     /* margin-top: 10px; */
-    text-align: right;
     margin-bottom: 17px;
     display: block;
+}
+
+.roles-responsibilities h4{
+                font-size: 20px;
+    font-weight: bold
+}
+.main-container{
+                width:960px;
+}
+.list-of-roles li{
+                list-style:none;
+                line-height:25px;
+}
+.list-of-roles li span{
+                margin-right: 11px;
+                font-size: 14px;
+}
+.roles-responsibilities{
+                margin-bottom: 65px;
+}
+
+.profile-heading{
+                text-align:center;
+                font-weight:bold;
 }
 
 /* end */

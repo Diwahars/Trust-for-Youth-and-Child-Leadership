@@ -7,22 +7,22 @@
 {% endblock %}
 
 {% block content %}
-
-<div class="form-style-10">
-        <img src="{% static 'volunteer/images/blackboard-02.jpeg' %}" class="form-bg-img">
+        <h3 class="profile-heading">Volunteer/Mentee Profile Registration</h3>
+       <div class="form-style-10">
+       <img src="{% static 'volunteer/images/blackboard-02.jpeg' %}" class="form-bg-img"/>
         <!--<h1>Sign Up Now!<span>Sign up and tell us what you think of the site!</span></h1>-->
-        <form class="form-register" action='/volunteer/profile/' method="POST">
-           <div class="pull-left form-blocks form-left"> <div class="section">Your Full Name / பெயர்</div>
+        <form class="form-register" action="/volunteer/profile/" method="POST">
+        {% csrf_token %}
+           <div class="pull-left form-blocks form-left"> <div class="section">Full Name / பெயர்</div>
             <div class="inner-wrap">
-                 <input type="text" name="field1" />
-                <!--<label>Address <textarea name="field2" rows="5"></textarea></label>-->
+                 <input type="text" name="Full_Name" />
             </div>
             </div>
 
             <div class="pull-left form-blocks">
                 <div class="section">Email / மின்னஞ்சல்</div>
                 <div class="inner-wrap">
-                    <input type="email" name="field3" />
+                    <input type="email" name="Email" />
 
                 </div>
             </div>
@@ -30,13 +30,13 @@
             <div class="pull-left form-blocks form-left">
                 <div class="section">Phone / தொலைபேசி</div>
                 <div class="inner-wrap">
-                    <input type="text" name="field4" />
+                    <input type="text" name="Phone" />
                 </div>
             </div>
             <div class="pull-left form-blocks">
                 <div class="section">Address / முகவரி</div>
                 <div class="inner-wrap">
-                    <textarea name="field2" rows="3"></textarea>
+                    <textarea name="Address" rows="3"></textarea>
                 </div>
             </div>
             <div class="clearfix"></div>
@@ -44,14 +44,14 @@
             <div class="pull-left form-blocks form-left">
                 <div class="section">DOB / பிறந்த தேதி</div>
                 <div class="inner-wrap">
-                    <input type="text" name="field3" />
+                    <input type="text" name="DOB" />
                     <!--<span class="glyphicon glyphicon-calendar"></span>-->
                 </div>
             </div>
             <div class="pull-left form-blocks">
                 <div class="section">Gender / பாலினம்</div>
                 <div class="inner-wrap">
-                    <input type="text" name="field3" />
+                    <input type="text" name="Gender" />
                 </div>
             </div>
             <div class="clearfix"></div>
@@ -59,25 +59,79 @@
             <div class="pull-left form-blocks form-left">
                 <div class="section">Class / வகுப்பு</div>
                 <div class="inner-wrap">
-                    <input type="text" name="field3" />
+                    <input type="text" name="Class" />
                 </div>
             </div>
             <div class="pull-left form-blocks">
                 <div class="section">Name of the Insitution / வகுப்பு</div>
                 <div class="inner-wrap">
-                   <input type="text" name="field4" />
+                   <input type="text" name="Name_of_the_Insitution" />
                 </div>
             </div>
 
             <div class="clearfix"></div>
+            <div class="pull-left form-blocks form-left">
+                <div class="section">How many hours in a week you can spare for the children?** / ோரத்தில் எத்தலன மணி தேரம் குழந்லதகளிடத்தில் பெைவிட முடியும்?</div>
+                <div class="inner-wrap">
+                    <input type="text" name="Contribution_Hours" />
+                </div>
+            </div>
+
+            <div class="pull-left form-blocks">
+                <div class="section">Category</div>
+                <div class="inner-wrap">
+                    <select name="Category">
+                    <option>Volunteer</option>
+                    <option>Mentee</option>
+                    </select>
+                </div>
+            </div>
+            <div class="clearfix"></div>
                 <span class="privacy-policy">
-             <input type="checkbox" name="field7">You agree to our Terms and Policy.
+             <input type="checkbox" name="field7">I hereby declare that all the above furnished information are true and I will abide by the Child Protection Policy of the Organisation and I will ensure the best interest of the children in a safe and inclusive manner.
              </span>
             <div class="button-section">
-             <input type="submit" name="Sign Up" />
-
+            <i style="display: inline-block; text-align: left; width: 100%; color: white;" >** Volunteer Only</i>
+            <br />
+            <input type="submit" name="Sign Up" />
             </div>
         </form>
-    </div>
+        </div>
+        <div class="roles-responsibilities volunteers">
+            <h4>ROLES AND RESPONSIBILITES OF VOLUNTEER</h4>
+            <p>Volunteers acts as administrative staff and program support. They help create, grow and propel relationships with mentors by taking responsibility for different roles.<br>Roles of a volunteer:</p>
+            <ul class="list-of-roles">
+            <li><span class="glyphicon glyphicon-hand-right"></span> Collect Mentee and Mentor data</li>
+            <li><span class="glyphicon glyphicon-hand-right"></span> Make the program accessible to both Mentors and Mentee ensuring its adaptability to their specific dynamic</li>
+            <li><span class="glyphicon glyphicon-hand-right"></span> Conduct Meetings</li>
+            <li><span class="glyphicon glyphicon-hand-right"></span> Take minutes at meetings</li>
+            <li><span class="glyphicon glyphicon-hand-right"></span> Review the agenda and accompanying children to meeting</li>
+            <li><span class="glyphicon glyphicon-hand-right"></span> Stick to the agenda during meetings</li>
+            <li><span class="glyphicon glyphicon-hand-right"></span> Maintaining records and Information</li>
+            <li><span class="glyphicon glyphicon-hand-right"></span> Document all interaction between a Mentor and Mentee</li>
+            <li><span class="glyphicon glyphicon-hand-right"></span> Send the reports of every interaction through tracker</li>
+            <li><span class="glyphicon glyphicon-hand-right"></span> Update your tracker within three hours from the commencement of meet</li>
+            <li><span class="glyphicon glyphicon-hand-right"></span> Intimate the coordinators and the centre heads before conducting every meet</li>
+            <li><span class="glyphicon glyphicon-hand-right"></span> Try to build a good rapport with mentor and mentee</li>
+            <li><span class="glyphicon glyphicon-hand-right"></span> Request for approval of a new policy / change in existing policy</li>
+            </ul>
+        </div>
+
+       <div class="roles-responsibilities">
+                <h4>ROLES AND RESPONSIBILITES OF MENTEE</h4>
+            <p>You will find that having a supporting mentoring relationship will benefit you as you learn the ins and outs as a mentee. Your mentor / volunteer is a support, but not your supervisor. Be receptive to what the mentor / volunteer has to say and be clear in asking for assistance when you need it. Mentee responsibilities include:</p>
+                <ul class="list-of-roles">
+            <li><span class="glyphicon glyphicon-hand-right"></span> Assume personal responsibilities for your professional growth</li>
+            <li><span class="glyphicon glyphicon-hand-right"></span> Listen and consider alternatives</li>
+            <li><span class="glyphicon glyphicon-hand-right"></span> Maintain confidentiality</li>
+            <li><span class="glyphicon glyphicon-hand-right"></span> Accept constructive feedback willingly</li>
+            <li><span class="glyphicon glyphicon-hand-right"></span> Be willing to take risk, Be open to new ideas</li>
+            <li><span class="glyphicon glyphicon-hand-right"></span>Maintain a positive attitude</li>
+            <li><span class="glyphicon glyphicon-hand-right"></span> Demonstrate initiative</li>
+            <li><span class="glyphicon glyphicon-hand-right"></span> Respect your Mentor / Volunteer time</li>
+            <li><span class="glyphicon glyphicon-hand-right"></span> Notify your mentor / volunteer of your problems, concerns or questions</li>
+            <li><span class="glyphicon glyphicon-hand-right"></span> Remember, there is more than one way to reach a goal</li>
+            </ul>
+        </div>
 
 {% endblock %}
