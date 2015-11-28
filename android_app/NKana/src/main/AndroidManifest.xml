@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.nkana.app" >
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/nkana_logo"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+
+        <activity
+            android:name="com.nkana.app.activity.ChooseMainActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".activity.LoginMendorActivity"
+            android:label="@string/mendor_login" >
+        </activity>
+
+        <activity
+            android:name=".activity.LoginVolunteerActivity"
+            android:label="@string/volunteer_login" >
+        </activity>
+
+        <activity
+            android:name=".activity.LoginChildrenActivity"
+            android:label="@string/children_login" >
+        </activity>
+
+        <activity
+            android:name="com.nkana.app.activity.RegistrationActivity"
+            android:label="@string/title_activity_registration" >
+        </activity>
+
+        <activity
+            android:theme="@style/nLiveoDrawer"
+            android:name=".activity.MendorMainActivity"
+            android:label="@string/title_mendor" >
+        </activity>
+
+        <activity
+            android:theme="@style/nLiveoDrawer"
+            android:name=".activity.VolunteerMainActivity"
+            android:label="@string/title_volunteer" >
+        </activity>
+
+        <activity
+            android:theme="@style/nLiveoDrawer"
+            android:name=".activity.ChildrenMainActivity"
+            android:label="@string/title_children" >
+        </activity>
+
+        <activity android:name="com.nkana.app.activity.UpdateProfile"/>
+        <activity android:name="com.nkana.app.activity.UpdateUser"/>
+
+        <activity
+            android:name="com.nkana.app.activity.SettingsActivity"
+            android:label="@string/settings">
+        </activity>
+
+    </application>
+
+</manifest>
