@@ -11,3 +11,18 @@ Identificaion of needy children.
 Tracking the progress children undetaken in the program.
 Pre and post Assesment of Program.
 Effective communication between all the stakeholders.
+
+Solution Approach
+=================
+
+Create an application (Web and Mobile) to establish a relationship between mentor, child and volunteers.
+
+Team Members 
+============
+
+Karthikeyan Selvaraj
+anitha n
+Chokkar Gurusamy
+sudha kanagaraj
+Vasanthareka Palanisamy
+Gunjan Sharma
