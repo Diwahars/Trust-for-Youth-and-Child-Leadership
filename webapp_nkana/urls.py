@@ -18,4 +18,6 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^volunteer/', include('volunteer.urls')),
+    url(r'^$', 'webapp_nkana.views.index', name='index'),
 ]

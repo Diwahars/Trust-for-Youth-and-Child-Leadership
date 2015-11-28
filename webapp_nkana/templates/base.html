@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load staticfiles %}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" type="text/css" href="{% static 'knana/css/bootstrap.min.css' %}" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="{% static 'knana/css/1-col-portfolio.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'knana/css/main.css' %}" />
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    {% block head_content %}{% endblock %}
+    <title>{% block title %}TYCL{% endblock %}</title>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="pull-left trustname">
+        <a href="#">N'KaNa</a>
+    </div>
+        <ul id="nav" class="pull-right">
+    
+
+    <li>
+        <a href="#">About</a>
+        <ul>
+            <li><a href="#">The product</a></li>
+
+            <li><a href="#">Meet the team</a></li>
+        </ul>
+    </li>
+    <li>
+        <a href="#">Services</a>
+
+        <ul>
+            <li><a href="#">Sevice one</a></li>
+            <li><a href="#">Sevice two</a></li>
+
+            <li><a href="#">Sevice three</a></li>
+            <li><a href="#">Sevice four</a></li>
+        </ul>
+
+    </li>
+    <li>
+        <a href="#">Volunteer</a>
+        <ul>
+            <li><a href="#">Small product (one)</a></li>
+
+            <li><a href="#">Small product (two)</a></li>
+            <li><a href="#">Small product (three)</a></li>
+            <li><a href="#">Small product (four)</a></li>
+
+            
+        </ul>
+    </li>
+    <li>
+        <a href="#">Children</a>
+        <ul>
+            <li><a href="#">Small product (one)</a></li>
+
+            <li><a href="#">Small product (two)</a></li>
+            <li><a href="#">Small product (three)</a></li>
+            <li><a href="#">Small product (four)</a></li>
+
+            
+        </ul>
+    </li>
+    <li>
+        <a href="#">Contact</a>
+
+        <ul>
+            <li><a href="#">Out-of-hours</a></li>
+            <li><a href="#">Directions</a></li>
+
+        </ul>
+    </li>
+</ul>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+
+        {% block content %}{% endblock %}
+
+    </div>
+    <!-- /.container -->
+    
+    <!-- Footer -->
+        <footer id="footer">
+            <div class="row">
+                <div class="col-lg-12">
+                    Copyright &copy; Your Website 2014	
+                </div>
+            </div>
+            <!-- /.row -->
+        </footer>
+        
+        
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

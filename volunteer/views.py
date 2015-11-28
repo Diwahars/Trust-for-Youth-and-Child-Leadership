@@ -1,3 +1,17 @@
 from django.shortcuts import render
+from webapp_nkana.utils.common import mongo_instance
+from datetime import datetime
 
-# Create your views here.
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework.authentication import SessionAuthentication, BasicAuthentication
+from rest_framework.permissions import IsAuthenticated
+
+
+class Volunteer(APIView):
+
+    def get(self, request):
+        current_user = request.user.username.upper()
+
+        if 'is_profile_set' in request.GET:
+            return Response({"status": False})
