@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/bg_login"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp">
+
+        <com.malmstein.floatinghints.FloatingHintEditTextLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/form_horizontal_padding"
+            app:floatingHintInAnimation="@anim/abc_fade_in"
+            app:floatingHintOutAnimation="@anim/abc_fade_out"
+            app:floatingHintTextAppearance="@style/FloatLabel.Label">
+
+            <EditText
+                android:id="@+id/updateFirstName"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:hint="@string/hint_firstname"
+                android:inputType="textCapWords"
+                android:padding="10dp"
+                android:singleLine="true"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white" />
+        </com.malmstein.floatinghints.FloatingHintEditTextLayout>
+
+        <com.malmstein.floatinghints.FloatingHintEditTextLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/form_horizontal_padding"
+            app:floatingHintInAnimation="@anim/abc_fade_in"
+            app:floatingHintOutAnimation="@anim/abc_fade_out"
+            app:floatingHintTextAppearance="@style/FloatLabel.Label">
+
+            <EditText
+                android:id="@+id/updateLastName"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:hint="@string/hint_lastname"
+                android:inputType="textCapWords"
+                android:padding="10dp"
+                android:singleLine="true"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white" />
+        </com.malmstein.floatinghints.FloatingHintEditTextLayout>
+
+        <com.malmstein.floatinghints.FloatingHintEditTextLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/form_horizontal_padding"
+            app:floatingHintInAnimation="@anim/abc_fade_in"
+            app:floatingHintOutAnimation="@anim/abc_fade_out"
+            app:floatingHintTextAppearance="@style/FloatLabel.Label">
+
+            <EditText
+                android:id="@+id/updateMobileNo"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:hint="@string/hint_mobileno"
+                android:inputType="textCapWords"
+                android:padding="10dp"
+                android:singleLine="true"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white" />
+        </com.malmstein.floatinghints.FloatingHintEditTextLayout>
+
+        <com.malmstein.floatinghints.FloatingHintEditTextLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/form_horizontal_padding"
+            app:floatingHintInAnimation="@anim/abc_fade_in"
+            app:floatingHintOutAnimation="@anim/abc_fade_out"
+            app:floatingHintTextAppearance="@style/FloatLabel.Label">
+
+            <EditText
+                android:id="@+id/updateEmail"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:editable="false"
+                android:hint="@string/hint_email"
+                android:inputType="textEmailAddress"
+                android:padding="10dp"
+                android:singleLine="true"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white" />
+        </com.malmstein.floatinghints.FloatingHintEditTextLayout>
+        <!-- Login Button -->
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/updateButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/round_shape_button"
+                android:padding="5dp"
+                android:text="@string/btn_update"
+                android:textColor="@color/btn_login" />
+
+            <Button
+                android:id="@+id/updateCancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:background="@drawable/round_shape_button"
+                android:padding="5dp"
+                android:text="@string/btn_cancel"
+                android:textColor="@color/btn_login" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
