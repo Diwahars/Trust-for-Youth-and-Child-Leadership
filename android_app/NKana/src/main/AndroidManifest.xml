@@ -11,7 +11,7 @@
         android:theme="@style/AppTheme" >
 
         <activity
-            android:name="com.nkana.app.activity.ChooseMainActivity"
+            android:name="com.nkana.app.activity.LoginMainActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,17 +21,22 @@
         </activity>
 
         <activity
-            android:name=".activity.LoginMendorActivity"
-            android:label="@string/mendor_login" >
+            android:name="com.nkana.app.activity.ChooseMainActivity"
+            android:label="@string/app_name" >
         </activity>
 
         <activity
-            android:name=".activity.LoginVolunteerActivity"
+            android:name=".activity.MendorRegistrationActivity"
+            android:label="@string/mentor_login" >
+        </activity>
+
+        <activity
+            android:name=".activity.VolunteerRegistrationActivity"
             android:label="@string/volunteer_login" >
         </activity>
 
         <activity
-            android:name=".activity.LoginChildrenActivity"
+            android:name=".activity.ChildrenRegistrationActivity"
             android:label="@string/children_login" >
         </activity>
 
@@ -43,7 +48,7 @@
         <activity
             android:theme="@style/nLiveoDrawer"
             android:name=".activity.MendorMainActivity"
-            android:label="@string/title_mendor" >
+            android:label="@string/title_mentor" >
         </activity>
 
         <activity

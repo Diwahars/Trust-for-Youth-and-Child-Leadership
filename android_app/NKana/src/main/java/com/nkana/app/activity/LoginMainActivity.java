@@ -3,42 +3,33 @@ package com.nkana.app.activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.nkana.app.Constants.IConstants;
 import com.nkana.app.R;
 import com.nkana.app.data.DBConnection;
 import com.nkana.app.model.DeviceConfig;
 import com.nkana.app.model.GeneralError;
 import com.nkana.app.model.Login;
-import com.nkana.app.network.Responses.LoginResponse;
+import com.nkana.app.network.Responses.RetriveProfileResponse;
 import com.nkana.app.network.RestClient;
 import com.nkana.app.util.StringUtil;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.List;
-
 import retrofit.Callback;
 import retrofit.RetrofitError;
-import retrofit.client.Header;
 import retrofit.client.Response;
 
 /**
  * Created by Chokkar G
  */
 
-public class LoginChildrenActivity extends AppCompatActivity {
-    private static final String LOG_TAG = LoginChildrenActivity.class.getSimpleName();
+public class LoginMainActivity extends AppCompatActivity {
+    private static final String LOG_TAG = LoginMainActivity.class.getSimpleName();
     private Context context;
     private EditText userEmail;
     private EditText userPassword;
@@ -53,7 +44,7 @@ public class LoginChildrenActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.login_childrenactivity);
+        setContentView(R.layout.login_main_activity);
         context = this;
         dbConnection = new DBConnection(context);
 
@@ -69,10 +60,8 @@ public class LoginChildrenActivity extends AppCompatActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                String userNameValue = userEmail.getText().toString();
-//                String userPasswordValue = userPassword.getText().toString();
-               String userNameValue = "chokkar.g@gmail.com";
-                String userPasswordValue = "chokkarg";
+                String userNameValue = userEmail.getText().toString();
+                String userPasswordValue = userPassword.getText().toString();
                 if(StringUtil.isNullOrEmpty(userNameValue) && StringUtil.isNullOrEmpty(userPasswordValue)){
                     Toast.makeText(context , "Please fill a form" , Toast.LENGTH_LONG).show();
                 } else{
@@ -104,47 +93,29 @@ public class LoginChildrenActivity extends AppCompatActivity {
         progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         progressDialog.setIndeterminate(true);
         progressDialog.show();
-        RestClient.setupLoginRestClient(login);
-        RestClient.get().login(deviceConfig, new Callback<LoginResponse>() {
+
+        RestClient.get().retriveProfile(login.getUsername(), new Callback<RetriveProfileResponse>() {
             @Override
-            public void success(LoginResponse loginResponse, Response response) {
+            public void success(RetriveProfileResponse retriveProfileResponse, Response response) {
                 // success!
                 progressDialog.dismiss();
-                BufferedReader reader = null;
-                StringBuilder sb = new StringBuilder();
-                try {
-                    reader = new BufferedReader(new InputStreamReader(response.getBody().in()));
-                    String line;
-                    try {
-                        while ((line = reader.readLine()) != null) {
-                            sb.append(line);
-                        }
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-
-                SharedPreferences.Editor editor = getSharedPreferences(IConstants.AUTH_TOKEN, MODE_PRIVATE).edit();
-
-                List<Header> headerList = response.getHeaders();
-                for (Header header : headerList) {
-                    String headerName = header.getName();
-                    String headerValue = header.getValue();
-                    if (headerName.equals(IConstants.AUTHORIZATION)) {
-                        Log.d(LOG_TAG, header.getName() + " " + headerValue);
-                        editor.putString(headerName, headerValue);
-                        editor.commit();
+                Toast.makeText(context, "Retrive name:" + retriveProfileResponse.getFullName(), Toast.LENGTH_LONG).show();
+                if (retriveProfileResponse.getFullName() == null) {
+                    Intent intent = new Intent(context, ChooseMainActivity.class);
+                    startActivity(intent);
+                 } else {
+                    String category = retriveProfileResponse.getCategory();
+                    if (category.contentEquals("Volunteer")) {
+                        Intent intent = new Intent(context, VolunteerMainActivity.class);
+                        startActivity(intent);
+                    } else if (category.contentEquals("Mentor")) {
+                        Intent intent = new Intent(context, VolunteerMainActivity.class);
+                        startActivity(intent);
+                    } else if (category.contentEquals("Children")) {
+                        Intent intent = new Intent(context, ChildrenMainActivity.class);
+                        startActivity(intent);
                     }
                 }
-
-                String result = sb.toString();
-                Toast.makeText(context, "Login Successful", Toast.LENGTH_LONG).show();
-                Log.i(LOG_TAG, "Login data:" + result);
-                Intent intent = new Intent(context, ChildrenMainActivity.class);
-                startActivity(intent);
-                finish();
             }
 
             @Override
@@ -152,7 +123,7 @@ public class LoginChildrenActivity extends AppCompatActivity {
                 progressDialog.dismiss();
                 GeneralError generalError = (GeneralError) error.getBodyAs(GeneralError.class);
                 if (generalError != null) {
-                    Toast.makeText(context, "" + generalError.getError().getMessage() +"\n"
+                    Toast.makeText(context, "" + generalError.getError().getMessage() + "\n"
                             + generalError.getError().getDetail(), Toast.LENGTH_LONG).show();
                 }
             }

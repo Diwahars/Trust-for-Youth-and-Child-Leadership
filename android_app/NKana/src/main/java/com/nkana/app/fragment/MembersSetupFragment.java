@@ -143,7 +143,6 @@ public class MembersSetupFragment extends Fragment {
    };
 
 	private void getGroupsList() {
-		RestClient.setupRestClient();
 		RestClient.get().groupsList(authKey, new Callback<List<GroupResponseList>>() {
 
 			@Override

@@ -88,7 +88,7 @@ public class MendorMainActivity extends NavigationLiveo implements OnItemClickLi
     }
 
     private void logout() {
-        RestClient.setupRestClient();
+
         RestClient.get().logout(authKey, new Callback<RegisterResponse>() {
             @Override
             public void success(RegisterResponse registerResponse, Response response) {
@@ -98,7 +98,7 @@ public class MendorMainActivity extends NavigationLiveo implements OnItemClickLi
                 SharedPreferences.Editor editor = getSharedPreferences(IConstants.AUTH_TOKEN, MODE_PRIVATE).edit();
                 editor.putString(IConstants.AUTHORIZATION, null);
                 editor.commit();
-                Intent loginIntent = new Intent(mContext , LoginMendorActivity.class);
+                Intent loginIntent = new Intent(mContext , MendorRegistrationActivity.class);
                 startActivity(loginIntent);
                 finish();
             }
@@ -111,7 +111,7 @@ public class MendorMainActivity extends NavigationLiveo implements OnItemClickLi
     }
 
     private void getProfile() {
-        RestClient.setupRestClient();
+
         RestClient.get().userProfile(authKey, new Callback<UpdateProfileResponse>() {
             @Override
             public void success(UpdateProfileResponse loginResponse, Response response) {

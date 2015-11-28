@@ -113,7 +113,7 @@ public class UpdateProfile extends AppCompatActivity {
     }
 
     private void getProfile() {
-        RestClient.setupRestClient();
+
         RestClient.get().userProfile(authKey, new Callback<UpdateProfileResponse>() {
             @Override
             public void success(UpdateProfileResponse loginResponse, Response response) {
