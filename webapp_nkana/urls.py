@@ -15,7 +15,18 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
+from rest_framework.urlpatterns import format_suffix_patterns
+from webapp_nkana import views
+
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^volunteer/', include('volunteer.urls')),
+    url(r'^insights/', 'webapp_nkana.views.insights'),
+    url(r'^logout/$', 'django.contrib.auth.views.logout'),
+    url(r'^login/$', 'webapp_nkana.views.app_login'),
+    url(r'^rest/insights', views.RestInsights.as_view()),
+    url(r'^$', 'webapp_nkana.views.index', name='index'),
 ]
+
+urlpatterns = format_suffix_patterns(urlpatterns)
