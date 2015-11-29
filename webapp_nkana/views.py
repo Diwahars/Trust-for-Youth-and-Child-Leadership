@@ -48,7 +48,7 @@ def insights(request):
     return render(request, 'insights.html', {'utilization_keys': [str(x['_id']) for x in location_stats],
                                              'utilization_values': [x['count'] for x in location_stats],
                                              'mentor': (mcw, len(mentor_counts) - mcw),
-                                             'mc_m': [x['volunteer'] for x in mc],
+                                             'mc_m': [str(x['volunteer']) for x in mc],
                                              'mc_c': [x['meetings'] for x in mc]})
 
 

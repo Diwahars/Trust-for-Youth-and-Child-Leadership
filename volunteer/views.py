@@ -11,9 +11,7 @@ from rest_framework.permissions import IsAuthenticated
 
 
 def register_profile(request):
-
     if request.method == 'POST':
-
         db = mongo_instance()
         keys = db.tycl.find_one({'id': 'volunteer_profile_reference'})['val']
         for k in keys:
@@ -24,7 +22,7 @@ def register_profile(request):
         db.tycl_vol_pfle.insert(keys)
         return HttpResponseRedirect('/')
 
-    return render(request, 'profile.html')
+    return render(request, 'volunteer_profile.html')
 
 
 class Volunteer(APIView):

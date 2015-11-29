@@ -1,0 +1,128 @@
+{% extends "base.html" %}
+
+{% block head_content %}
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'volunteer/css/profile.css' %}" charset="utf-8"></script>
+{% endblock %}
+
+
+{% block content %}
+<!-- Page Content -->
+    <div class="container">
+       <h3 class="profile-heading">Mentor Profile Registration</h3>
+       <div class="form-style-10">
+       <img src="{% static 'volunteer/images/blackboard-02.jpeg' %}" class="form-bg-img" style="height: 720px;"/>
+        <form class="form-register" action="/mentor/profile/" method="POST">
+        {% csrf_token %}
+           <div class="pull-left form-blocks form-left"> <div class="section">Full Name / பெயர்</div>
+            <div class="inner-wrap">
+                 <input type="text" name="Full_Name" />
+            </div>
+            </div>
+
+            <div class="pull-left form-blocks">
+                <div class="section">Email / மின்னஞ்சல்</div>
+                <div class="inner-wrap">
+                    <input type="email" name="Email" />
+
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="pull-left form-blocks form-left">
+                <div class="section">Phone / தொலைபேசி</div>
+                <div class="inner-wrap">
+                    <input type="text" name="Phone" />
+                </div>
+            </div>
+            <div class="pull-left form-blocks">
+                <div class="section">Address / முகவரி</div>
+                <div class="inner-wrap">
+                    <textarea name="Address" rows="3"></textarea>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+
+            <div class="pull-left form-blocks form-left">
+                <div class="section">DOB / பிறந்த தேதி</div>
+                <div class="inner-wrap">
+                    <input type="text" name="DOB" />
+                    <!--<span class="glyphicon glyphicon-calendar"></span>-->
+                </div>
+            </div>
+            <div class="pull-left form-blocks">
+                <div class="section">Gender / பாலினம்</div>
+                <div class="inner-wrap">
+                    <input type="text" name="Gender" />
+                </div>
+            </div>
+            <div class="clearfix"></div>
+
+            <div class="pull-left form-blocks form-left">
+                <div class="section">Designation / பதவி:</div>
+                <div class="inner-wrap">
+                    <input type="text" name="Designation" />
+                </div>
+            </div>
+            <div class="pull-left form-blocks">
+                <div class="section">Place of Work / பணியிடம்</div>
+                <div class="inner-wrap">
+                   <input type="text" name="Place_of_Work" />
+                </div>
+            </div>
+
+            <div class="clearfix"></div>
+            <div class="pull-left form-blocks form-left">
+                <div class="section">Experience(Months) / அனுபவம்:</div>
+                <div class="inner-wrap">
+                    <input type="text" name="Experience" />
+                </div>
+            </div>
+            <div class="pull-left form-blocks">
+                <div class="section">Area of Expertise / நிபுணத்துவம்</div>
+                <div class="inner-wrap">
+                    <input type="text" name="Area_of_Expertise" />
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="pull-left form-blocks">
+                <div class="section">How many hours in a week you can spare for the children? / ோரத்தில் எத்தலன மணி தேரம் குழந்லதகளிடத்தில் பெைவிட முடியும்?</div>
+                <div class="inner-wrap">
+                    <input type="text" name="Contribution_Hours" />
+                    <input type="hidden" name="Category" value="Mentor" />
+                </div>
+            </div>
+            <div class="clearfix"></div>
+                <span class="privacy-policy">
+             <input type="checkbox" name="field7">I hereby declare that all the above furnished information are true and I will abide by the Child Protection Policy of the Organisation and I will ensure the best interest of the children in a safe and inclusive manner.
+             </span>
+            <div class="button-section">
+             <input type="submit" name="Sign Up" />
+
+            </div>
+        </form>
+                </div>
+        <!-- /.row -->
+
+        <div class="roles-responsibilities">
+                <h4>ROLES AND RESPONSIBILITES OF MENTOR</h4>
+            <p>Mentor must be willing to accept the commitment of time and energy to provide support for a new mentee. A clear understanding of the mentoring process will go a long way towards assuring success. You will need to maintain support and open communication. You will also:</p>
+                <ul class="list-of-roles">
+            <li><span class="glyphicon glyphicon-hand-right"></span> Intimate contact with the mentee</li>
+            <li><span class="glyphicon glyphicon-hand-right"></span> Meet mentee at least once in a month</li>
+            <li><span class="glyphicon glyphicon-hand-right"></span> Be a good listener</li>
+            <li><span class="glyphicon glyphicon-hand-right"></span> Meet at scheduled times</li>
+            <li><span class="glyphicon glyphicon-hand-right"></span> Maintain confidentiality</li>
+            <li><span class="glyphicon glyphicon-hand-right"></span> Give constructive feedback</li>
+            <li><span class="glyphicon glyphicon-hand-right"></span> Promote mentees skill and creativity</li>
+            <li><span class="glyphicon glyphicon-hand-right"></span> Share experience based cultural values</li>
+            <li><span class="glyphicon glyphicon-hand-right"></span> Help the mentee to move towards goal</li>
+            <li><span class="glyphicon glyphicon-hand-right"></span> Build a professional network for mentee</li>
+            <li><span class="glyphicon glyphicon-hand-right"></span> Maintain a positive attitude</li>
+            <li><span class="glyphicon glyphicon-hand-right"></span> Encourage independence</li>
+            <li><span class="glyphicon glyphicon-hand-right"></span> Create access to resources (Financial & Non - Financial)</li>
+            <li><span class="glyphicon glyphicon-hand-right"></span> Remember there is most often more than one way to reach a goal. Support the mentee to the best of your ability, but remember the project success or failure of the mentee is in the hands of the mentor.</li>
+            </ul>
+        </div>
+    </div>
+
+{% endblock %}

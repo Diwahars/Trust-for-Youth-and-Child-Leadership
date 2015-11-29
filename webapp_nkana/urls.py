@@ -22,6 +22,7 @@ from webapp_nkana import views
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^volunteer/', include('volunteer.urls')),
+    url(r'^mentor/', include('mentor.urls')),
     url(r'^insights/', 'webapp_nkana.views.insights'),
     url(r'^logout/$', 'django.contrib.auth.views.logout'),
     url(r'^login/$', 'webapp_nkana.views.app_login'),

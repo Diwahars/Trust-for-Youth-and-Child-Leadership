@@ -112,12 +112,70 @@ $(function () {
 
 <script>
 
+    $(function () {
+    $('#container2').highcharts({
+        chart: {
+            type: 'bar'
+        },
+        title: {
+            text: 'Meeting Frequency of Volunteers'
+        },
+        subtitle: {
+            text: 'Source: <a href="https://en.wikipedia.org/wiki/World_population">Wikipedia.org</a>'
+        },
+        xAxis: {
+            categories: {{ mc_m|safe }},
+            title: {
+                text: null
+            }
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: 'Visit Frequency',
+                align: 'high'
+            },
+            labels: {
+                overflow: 'justify'
+            }
+        },
+        tooltip: {
+            valueSuffix: ' Times'
+        },
+        plotOptions: {
+            bar: {
+                dataLabels: {
+                    enabled: true
+                }
+            }
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'top',
+            x: -40,
+            y: 80,
+            floating: true,
+            borderWidth: 1,
+            backgroundColor: ((Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'),
+            shadow: true
+        },
+        credits: {
+            enabled: false
+        },
+        series: [{
+            name: 'Times Of Visit',
+            data: {{ mc_c|safe }}
+        }]
+    });
+});
+
 </script>
 
 {% endblock %}
 
 {% block content %}
-<div id="container" style="height: 400px;width: 600px"></div>
-<div id="container1" style="height: 400px;width: 600px"></div>
-<div id="container2" style="height: 400px;width: 600px"></div>
+<div id="container" style="height: 400px;width: 700px;float:left"></div>
+<div id="container1" style="height: 400px;width: 700px;float:right"></div>
+<div id="container2" style="height: 400px;width: 600px;margin: 0 auto; clear:both;"></div>
 {% endblock %}
