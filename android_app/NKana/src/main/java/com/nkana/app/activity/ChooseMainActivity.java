@@ -30,21 +30,21 @@ public class ChooseMainActivity extends AppCompatActivity {
         btn_mentor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(context, LoginMendorActivity.class);
+                Intent intent = new Intent(context, MendorRegistrationActivity.class);
                 startActivity(intent);
             }
         });
         volunteer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, LoginVolunteerActivity.class);
+                Intent intent = new Intent(context, VolunteerRegistrationActivity.class);
                 startActivity(intent);
             }
         });
         btn_student.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, LoginChildrenActivity.class);
+                Intent intent = new Intent(context, ChildrenRegistrationActivity.class);
                 startActivity(intent);
             }
         });

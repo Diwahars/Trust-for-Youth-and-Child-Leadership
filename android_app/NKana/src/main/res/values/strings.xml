@@ -3,6 +3,7 @@
     <string name="login_screen">Login Screen</string>
     <string name="action_settings">Settings</string>
     <string name="hint_email">Email</string>
+    <string name="hint_username">Username</string>
     <string name="hint_password">Password</string>
     <string name="hint_firstname">First Name</string>
     <string name="hint_lastname">Last Name</string>
@@ -63,16 +64,16 @@
     <string name="reminders">Reminders</string>
 
 
-
-    <string name="btn_mendor">MENDOR</string>
+    <string name="btn_mentor">MENTOR</string>
     <string name="btn_volunteer">volunteer</string>
     <string name="btn_children">Children</string>
-    <string name="mendor_login">Mendor Login</string>
-    <string name="volunteer_login">volunteer Login</string>
-    <string name="children_login">children Login</string>
-    <string name="title_mendor">Mendor</string>
+    <string name="mentor_login">Mentor Login</string>
+    <string name="volunteer_login">Volunteer Login</string>
+    <string name="children_login">Children Login</string>
+    <string name="title_mentor">Mentor</string>
     <string name="title_volunteer">Volunteer</string>
     <string name="title_children">Children</string>
+    <string name="admin_data">Admin</string>
 
 
 </resources>

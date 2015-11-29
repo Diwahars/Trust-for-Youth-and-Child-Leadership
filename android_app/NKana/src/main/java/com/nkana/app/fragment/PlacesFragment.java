@@ -76,7 +76,7 @@ public class PlacesFragment extends Fragment {
 		listview = (ListView) rootView.findViewById(R.id.listview);
 		preferences = getActivity().getSharedPreferences(IConstants.AUTH_TOKEN, getActivity().MODE_PRIVATE);
 		authKey = preferences.getString(IConstants.AUTHORIZATION, null);
-		getGroupsList();
+//		getGroupsList();
 		return rootView;		
 	}
 	
@@ -143,7 +143,7 @@ public class PlacesFragment extends Fragment {
    };
 
 	private void getGroupsList() {
-		RestClient.setupRestClient();
+
 		RestClient.get().groupsList(authKey, new Callback<List<GroupResponseList>>() {
 
 			@Override

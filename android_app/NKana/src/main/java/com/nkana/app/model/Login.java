@@ -11,6 +11,9 @@ public class Login {
 
     private String username;
     private String password;
+    private String device;
+
+
 
     public String getUsername() {
         return username;
@@ -28,12 +31,22 @@ public class Login {
         this.password = password;
     }
 
+    public String getDevice() {
+        return device;
+    }
+
+    public void setDevice(String device) {
+        this.device = device;
+    }
+
+
     public String toJSON() {
 
         JSONObject jsonObject = new JSONObject();
         try {
             jsonObject.put("username", username);
             jsonObject.put("password", password);
+            jsonObject.put("device", device);
             return jsonObject.toString();
         } catch (JSONException e) {
             e.printStackTrace();
