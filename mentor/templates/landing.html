@@ -3,10 +3,144 @@
 {% block head_content %}
     {% load staticfiles %}
     <link rel="stylesheet" type="text/css" href="{% static 'volunteer/css/profile.css' %}" charset="utf-8"></script>
+
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+
+    <script>
+$(function () {
+    $('#container').highcharts({
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: 'Child Attitude Development'
+        },
+        subtitle: {
+            text: ''
+        },
+        xAxis: {
+            categories: [
+                'Jan',
+                'Feb',
+                'Mar',
+                'Apr',
+                'May',
+                'Jun',
+                'Jul',
+                'Aug',
+                'Sep',
+                'Oct',
+                'Nov',
+                'Dec'
+            ],
+            crosshair: true
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: 'Rating'
+            }
+        },
+        tooltip: {
+            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                '<td style="padding:0"><b>{point.y:.1f}</b></td></tr>',
+            footerFormat: '</table>',
+            shared: true,
+            useHTML: true
+        },
+        plotOptions: {
+            column: {
+                pointPadding: 0.2,
+                borderWidth: 0
+            }
+        },
+        series: [
+
+
+        {
+            name: 'Participation in social/community events',
+            data: {{ res|safe }}
+
+        }, {
+            name: 'Child relationship with friends',
+            data: {{ res2|safe }}
+
+        }]
+    });
+});
+    </script>
+
+    <script>
+$(function () {
+    $('#container2').highcharts({
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: 'Child Career Development'
+        },
+        subtitle: {
+            text: ''
+        },
+        xAxis: {
+            categories: [
+                'Jan',
+                'Feb',
+                'Mar',
+                'Apr',
+                'May',
+                'Jun',
+                'Jul',
+                'Aug',
+                'Sep',
+                'Oct',
+                'Nov',
+                'Dec'
+            ],
+            crosshair: true
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: 'Rating'
+            }
+        },
+        tooltip: {
+            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                '<td style="padding:0"><b>{point.y:.1f}</b></td></tr>',
+            footerFormat: '</table>',
+            shared: true,
+            useHTML: true
+        },
+        plotOptions: {
+            column: {
+                pointPadding: 0.2,
+                borderWidth: 0
+            }
+        },
+        series: [
+
+
+        {
+            name: 'Educational performance at the school',
+            data: {{ res3|safe }}
+
+        }, {
+            name: 'Participation in social/community events',
+            data: {{ res4|safe }}
+
+        }]
+    });
+});
+    </script>
+
 {% endblock %}
 
 {% block content %}
-<div class="container">
+
                 <div class="row">
                 <div class="col-lg-9 col-md-9 left-content">
                 <h4 class="mentor-title">Mentor</h4>
@@ -24,10 +158,12 @@
                 <div class="feedback-child">
                                 <p class="pull-left fb-meet-lb">Feedback for Child : </p>
                     <div class="clearfix"></div>
-                    <div><textarea rows="5" cols="45" style="border-radius:7px;"></textarea> </div>
+                    <div><textarea rows="5" cols="45" style="border-radius:7px; align:"></textarea> </div>
                 </div>
-                <h4>Mentor of similar Interest :</h4>
+                <h4>Mentor of similar Interest : Ravi Philip Rajkumar</h4>
                 <div class="mentor-interest">
+                        <div id="container" style="width:400px; height: 400px; float:left;"></div>
+                         <div id="container2" style="width:400px; height: 400px;float:left;"></div>
                 </div>
                 </form>
                 </form>
@@ -41,28 +177,19 @@
                 </div>
                 {% endfor %}
                 <h4 class="Child-title">Children</h4>
-                
+
                 {% for d, v in child_data %}
                     <div class="row Child-profile">
                     <div class="col-lg-6 col-md-6"><strong>{{d}}:</strong></div>
                         <div class="col-lg-6 col-md-6">{{v}}</div>
                     </div>
                 {% endfor %}
-                <iframe src="https://calendar.google.com/calendar/embed?src=sjenslin%40gmail.com&ctz=Asia/Calcutta" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
-                <div id="authorize-div" style="display: none">
-                  <span>Authorize access to Google Calendar API</span>
-                  <!--Button for the user to click to initiate auth sequence -->
-                  <button id="authorize-button" onClick="handleAuthClick(event)">
-                    Authorize
-                  </button>
-            </div>
-            <pre id="output"></pre>
+
             </div>
         </div>
 
     </div>
         <!-- /.row -->
 
-    </div>
-    <!-- /.container -->
+
 {% endblock %}

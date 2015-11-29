@@ -21,15 +21,33 @@ def register_mentor_profile(request):
 
 
 def mentor_landing(request):
+    db = mongo_instance()
     if request.method == "POST":
         pass
+
+    res = db.tycl_questionnare_new.find({ "Participation in social/community events": { "$exists": True}},
+                                                         {'_id':0, "Participation in social/community events":1 })
+    res2 = db.tycl_questionnare_new.find({ "Child relationship with friends": { "$exists": True}},
+                                                          {'_id':0, "Child relationship with friends":1 })
+    res1 = [int(r.values()[0]) for r in res][:12]
+    res12 = [int(r.values()[0]) for r in res2][:12]
+
+    res3 = db.tycl_questionnare_new.find({ "Educational performance at the school": { '$exists': True}},
+                                                          {'_id':0, "Educational performance at the school":1 })
+    res4 = db.tycl_questionnare_new.find({ "Participation in social/community events": { '$exists': True}},
+                                                          {'_id':0, "Participation in social/community events":1 })
+
+    res13 = [int(r.values()[0]) for r in res3][:12]
+    res14 = [int(r.values()[0]) for r in res4][:12]
 
     db = mongo_instance()
     mentor_data = db.tycl_mentor_data.find_one({"username": request.user.username})
     volunteer_data = db.tycl_vol_pfle.find_one({"username": mentor_data['volunteer']}, {'_id': 0, 'username': 0}).items()
     child_data = db.tycl_vol_pfle.find_one({"username": mentor_data['child']}, {'_id': 0, 'username': 0}).items()
+
     return render(request, 'landing.html', {'historic_feedback': [x.items() for x in mentor_data['feedback']],
-                                            'child_data': child_data, 'volunteer_data': volunteer_data})
+                                            'child_data': child_data, 'volunteer_data': volunteer_data,
+                                            'res': res1, 'res2': res12, 'res3': res13, 'res4': res14})
 
 
 def mentor_questionnare(request):

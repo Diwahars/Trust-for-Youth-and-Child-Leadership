@@ -32,6 +32,8 @@ def app_login(request):
                 return HttpResponseRedirect("/")
             else:
                 return HttpResponseRedirect("/")
+        else:
+            return HttpResponseRedirect("/login")
     else:
         return render(request, 'login.html')
 

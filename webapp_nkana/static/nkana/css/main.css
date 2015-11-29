@@ -14,7 +14,7 @@ body{
     bottom: 0px;
     height: auto;
     width: 100%;
-    background: #222;
+    background: #3B7FC4;
     padding: 12px 51px;margin:0;
 	color:#fff;
 	}
@@ -27,6 +27,13 @@ body{
 	.trustname a{color:#fff}
 	
 	/* BE SURE TO INCLUDE THE CSS RESET FOUND IN THE DEMO PAGE'S CSS */
+
+.navbar-inverse {
+background: #3B7FC4;
+border-color:#3B7FC4;
+}
+
+
 
 /*------------------------------------*\
     NAV
@@ -156,14 +163,14 @@ body{
   height: 1em;
   font-size: .625em;
   line-height: 1;
-  right: 1.2em;
+  right: 0.6em;
   top: 50%;
   margin-top: -.5em;
 }
 
 .custom-dropdown::before { /*  Custom dropdown arrow cover */
   width: 2em;
-  right: 0;
+  right: -7px;
   top: 0;
   bottom: 0;
   border-radius: 0 3px 3px 0;
