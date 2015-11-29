@@ -33,13 +33,14 @@ import com.nkana.app.R;
 /**
  * Created by chokkar
  */
-public class HelpFragment extends Fragment {
+public class AboutFragment extends Fragment {
 
     private boolean mSearchCheck;
     private static final String TEXT_FRAGMENT = "TEXT_FRAGMENT";
+	private TextView mTxtTitle;
 
-	public static HelpFragment newInstance(String text){
-		HelpFragment mFragment = new HelpFragment();
+	public static AboutFragment newInstance(String text){
+		AboutFragment mFragment = new AboutFragment();
 		Bundle mBundle = new Bundle();
 		mBundle.putString(TEXT_FRAGMENT, text);
 		mFragment.setArguments(mBundle);
@@ -52,13 +53,25 @@ public class HelpFragment extends Fragment {
 		// TODO Auto-generated method stub		
 		View rootView = inflater.inflate(R.layout.fragment_help, container, false);
 
-        TextView mTxtTitle = (TextView) rootView.findViewById(R.id.txtTitle);
-        mTxtTitle.setText(getArguments().getString(TEXT_FRAGMENT));
+        mTxtTitle = (TextView) rootView.findViewById(R.id.txtTitle);
+//        mTxtTitle.setText(getArguments().getString(TEXT_FRAGMENT));
 
 		rootView.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.MATCH_PARENT ));		
 		return rootView;		
 	}
-	
+
+	@Override
+	public void onResume() {
+		super.onResume();
+		mTxtTitle.setText("NKaNa (My Sister and Brother) aims to connect professionals " +
+				"with children in need and risk. This project consists of Mentee (Children), Mentor (Professional) and student Volunteer. " +
+				"This program revolves around developing a goal-oriented relationship between a progressing child and a mentor who induces " +
+				"a critical guiding force making the children become fruitful in their respective dreams. " +
+				"The mentors act as exemplary role models and the children look up to " +
+				"their respective mentors and seek career related advices from them and hence " +
+				"the name N’KaNa. The student volunteers will be engaged as a rapporteurs.");
+	}
+
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub

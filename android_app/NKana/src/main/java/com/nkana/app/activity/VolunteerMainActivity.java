@@ -21,11 +21,9 @@ import com.nkana.app.R;
 import com.nkana.app.data.DBConnection;
 import com.nkana.app.fragment.GraphSetupFragment;
 import com.nkana.app.fragment.GroupSetupFragment;
-import com.nkana.app.fragment.MembersSetupFragment;
-import com.nkana.app.fragment.RemindersFragment;
+import com.nkana.app.fragment.AboutFragment;
 import com.nkana.app.fragment.QuestionerFragment;
 import com.nkana.app.fragment.TrackerFragment;
-import com.nkana.app.fragment.ViewPagerFragment;
 import com.nkana.app.network.Responses.RegisterResponse;
 import com.nkana.app.network.Responses.UpdateProfileResponse;
 import com.nkana.app.network.RestClient;
@@ -84,7 +82,7 @@ public class VolunteerMainActivity extends NavigationLiveo implements OnItemClic
 // the addAction re-use the same intent to keep the example short
         Notification n  = new Notification.Builder(this)
                 .setContentTitle("NKana Notification")
-                .setContentText("The Traker not updated")
+                .setContentText("The Tracker not updated")
                 .setSmallIcon(R.mipmap.ic_stat_nkana_logo)
                 .setContentIntent(pIntent)
                 .setAutoCancel(true).build();
@@ -109,10 +107,11 @@ public class VolunteerMainActivity extends NavigationLiveo implements OnItemClic
         if (id == R.id.action_logout) {
             logout();
             return true;
-        } else if (id == R.id.action_update){
-            Intent intent = new Intent(mContext, UpdateProfile.class);
-            startActivity(intent);
         }
+//        else if (id == R.id.action_update){
+//            Intent intent = new Intent(mContext, UpdateProfile.class);
+//            startActivity(intent);
+//        }
 
         return super.onOptionsItemSelected(item);
     }
@@ -182,7 +181,7 @@ public class VolunteerMainActivity extends NavigationLiveo implements OnItemClic
 //        mHelpLiveo.addSubHeader(getString(R.string.categories)); //Item subHeader
         mHelpLiveo.add(getString(R.string.tracker), R.mipmap.ic_send_black_24dp);
         mHelpLiveo.addSeparator(); // Item separator
-        mHelpLiveo.add(getString(R.string.help), R.mipmap.ic_report_black_24dp);
+        mHelpLiveo.add(getString(R.string.about), R.mipmap.ic_report_black_24dp);
 
         //{optional} - Header Customization - method customHeader
 //        View mCustomHeader = getLayoutInflater().inflate(R.layout.custom_header_user, this.getListView(), false);
@@ -243,13 +242,17 @@ public class VolunteerMainActivity extends NavigationLiveo implements OnItemClic
                 updateTilteBar(position);
                 break;
             case 3:
-                mFragment = RemindersFragment.newInstance(mHelpLiveo.get(position).getName());
+                mFragment = AboutFragment.newInstance(mHelpLiveo.get(position).getName());
                 updateTilteBar(position);
                 break;
             case 4:
-                mFragment = new ViewPagerFragment();
+                mFragment = AboutFragment.newInstance(mHelpLiveo.get(position).getName());
                 updateTilteBar(position);
                 break;
+//            case 4:
+//                mFragment = new ViewPagerFragment();
+//                updateTilteBar(position);
+//                break;
             default:
                 mFragment = GroupSetupFragment.newInstance(mHelpLiveo.get(position).getName());
                 updateTilteBar(position);
