@@ -68,11 +68,12 @@
     <string name="btn_volunteer">volunteer</string>
     <string name="btn_children">Children</string>
     <string name="mentor_login">Mentor Login</string>
-    <string name="volunteer_login">volunteer Login</string>
-    <string name="children_login">children Login</string>
+    <string name="volunteer_login">Volunteer Login</string>
+    <string name="children_login">Children Login</string>
     <string name="title_mentor">Mentor</string>
     <string name="title_volunteer">Volunteer</string>
     <string name="title_children">Children</string>
+    <string name="admin_data">Admin</string>
 
 
 </resources>

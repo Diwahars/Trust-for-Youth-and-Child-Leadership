@@ -17,6 +17,7 @@ import com.nkana.app.model.DeviceConfig;
 import com.nkana.app.model.GeneralError;
 import com.nkana.app.model.Login;
 import com.nkana.app.network.Responses.RetriveProfileResponse;
+import com.nkana.app.network.Responses.UtilizationResponse;
 import com.nkana.app.network.RestClient;
 import com.nkana.app.util.StringUtil;
 
@@ -35,7 +36,7 @@ public class LoginMainActivity extends AppCompatActivity {
     private EditText userPassword;
     private Login login;
     private DeviceConfig deviceConfig;
-    private Button loginButton ;
+    private Button loginButton ,admin_id ;
     private static final String ANDROID = "Android";
     private String mDeviceID;
     private DBConnection dbConnection;
@@ -51,10 +52,19 @@ public class LoginMainActivity extends AppCompatActivity {
         userEmail = (EditText) findViewById(R.id.userEmail);
         userPassword = (EditText) findViewById(R.id.userPassword);
         loginButton = (Button) findViewById(R.id.loginButton);
+        admin_id = (Button) findViewById(R.id.admin_id);
         login = new Login();
         deviceConfig = new DeviceConfig();
 //        login.setPassword("chokkar");
 //        login.setUsername("chokkar.g@gmail.com");
+
+        admin_id.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context , AdminMainActivity.class);
+                startActivity(intent);
+            }
+        });
 
 
         loginButton.setOnClickListener(new View.OnClickListener() {
@@ -103,17 +113,21 @@ public class LoginMainActivity extends AppCompatActivity {
                 if (retriveProfileResponse.getFullName() == null) {
                     Intent intent = new Intent(context, ChooseMainActivity.class);
                     startActivity(intent);
+                    finish();
                  } else {
                     String category = retriveProfileResponse.getCategory();
                     if (category.contentEquals("Volunteer")) {
                         Intent intent = new Intent(context, VolunteerMainActivity.class);
                         startActivity(intent);
+                        finish();
                     } else if (category.contentEquals("Mentor")) {
                         Intent intent = new Intent(context, VolunteerMainActivity.class);
                         startActivity(intent);
+                        finish();
                     } else if (category.contentEquals("Children")) {
                         Intent intent = new Intent(context, ChildrenMainActivity.class);
                         startActivity(intent);
+                        finish();
                     }
                 }
             }

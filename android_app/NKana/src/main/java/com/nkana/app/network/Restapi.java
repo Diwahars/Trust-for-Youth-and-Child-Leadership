@@ -15,6 +15,7 @@ import com.nkana.app.network.Responses.RegisterResponse;
 import com.nkana.app.model.Registration;
 import com.nkana.app.network.Responses.RetriveProfileResponse;
 import com.nkana.app.network.Responses.UpdateProfileResponse;
+import com.nkana.app.network.Responses.UtilizationResponse;
 
 import java.util.List;
 
@@ -33,11 +34,15 @@ import retrofit.http.Query;
  */
 
 public interface Restapi {
+
     @POST("/login/")
     void login(@Body Login login, Callback<LoginResponse> callback);
 
     @GET("/volunteer/rest/profile")
     void retriveProfile(@Query("retrive_profile") String retrive_profile, Callback<RetriveProfileResponse> callback);
+
+    @GET("/rest/insights?utilization")
+    void utilizationValues(Callback<UtilizationResponse> callback);
 
     @POST("/account/register/")
     void register(@Body Registration registration, Callback<RegisterResponse> callback);

@@ -76,7 +76,7 @@ public class MembersSetupFragment extends Fragment {
 		preferences = getActivity().getSharedPreferences(IConstants.AUTH_TOKEN, getActivity().MODE_PRIVATE);
 		authKey = preferences.getString(IConstants.AUTHORIZATION, null);
 		rootView.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.MATCH_PARENT ));
-		getGroupsList();
+//		getGroupsList();
 		return rootView;		
 	}
 	

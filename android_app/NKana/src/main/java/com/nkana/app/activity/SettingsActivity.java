@@ -31,7 +31,7 @@ public class SettingsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_group_setup);
+        setContentView(R.layout.seetings_layout);
 
         TextView mTxtTitle = (TextView) findViewById(R.id.txtTitle);
         mTxtTitle.setText(getString(R.string.settings));

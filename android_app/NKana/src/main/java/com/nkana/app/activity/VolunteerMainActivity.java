@@ -153,8 +153,6 @@ public class VolunteerMainActivity extends NavigationLiveo implements OnItemClic
 //        mHelpLiveo.addSubHeader(getString(R.string.categories)); //Item subHeader
         mHelpLiveo.add(getString(R.string.monitor), R.mipmap.ic_star_black_24dp);
         mHelpLiveo.add(getString(R.string.statistics), R.mipmap.ic_send_black_24dp);
-        mHelpLiveo.add(getString(R.string.remainders), R.mipmap.ic_drafts_black_24dp);
-        mHelpLiveo.add(getString(R.string.locationsharing), R.mipmap.ic_delete_black_24dp);
         mHelpLiveo.addSeparator(); // Item separator
         mHelpLiveo.add(getString(R.string.help), R.mipmap.ic_report_black_24dp);
 

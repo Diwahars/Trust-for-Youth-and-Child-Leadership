@@ -63,6 +63,12 @@
             android:label="@string/title_children" >
         </activity>
 
+        <activity
+            android:theme="@style/nLiveoDrawer"
+            android:name=".activity.AdminMainActivity"
+            android:label="@string/admin_data">
+        </activity>
+
         <activity android:name="com.nkana.app.activity.UpdateProfile"/>
         <activity android:name="com.nkana.app.activity.UpdateUser"/>
 
@@ -70,6 +76,8 @@
             android:name="com.nkana.app.activity.SettingsActivity"
             android:label="@string/settings">
         </activity>
+
+
 
     </application>
 
