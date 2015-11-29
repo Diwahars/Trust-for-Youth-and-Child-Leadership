@@ -15,12 +15,9 @@
  */
 package com.nkana.app.fragment;
 
-import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.SearchView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -28,39 +25,22 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.EditText;
-import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
-import com.nkana.app.Constants.IConstants;
 import com.nkana.app.R;
-import com.nkana.app.network.Responses.GroupResponseList;
-import com.nkana.app.network.RestClient;
-import com.nkana.app.network.RestError.RestLoginError;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import retrofit.Callback;
-import retrofit.RetrofitError;
-import retrofit.client.Response;
-
 /**
  * Created by chokkar
  */
-public class PlacesFragment extends Fragment {
+public class AboutFragment extends Fragment {
 
     private boolean mSearchCheck;
     private static final String TEXT_FRAGMENT = "TEXT_FRAGMENT";
-	private String authKey;
-	private SharedPreferences preferences;
-	private ListView listview;
-	private static final String LOG_TAG = PlacesFragment.class.getSimpleName();
+	private TextView mTxtTitle;
 
-	public static PlacesFragment newInstance(String text){
-		PlacesFragment mFragment = new PlacesFragment();
+	public static AboutFragment newInstance(String text){
+		AboutFragment mFragment = new AboutFragment();
 		Bundle mBundle = new Bundle();
 		mBundle.putString(TEXT_FRAGMENT, text);
 		mFragment.setArguments(mBundle);
@@ -71,15 +51,27 @@ public class PlacesFragment extends Fragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		// TODO Auto-generated method stub		
-		View rootView = inflater.inflate(R.layout.fragment_places, container, false);
-		rootView.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.MATCH_PARENT ));
-		listview = (ListView) rootView.findViewById(R.id.listview);
-		preferences = getActivity().getSharedPreferences(IConstants.AUTH_TOKEN, getActivity().MODE_PRIVATE);
-		authKey = preferences.getString(IConstants.AUTHORIZATION, null);
-//		getGroupsList();
+		View rootView = inflater.inflate(R.layout.fragment_help, container, false);
+
+        mTxtTitle = (TextView) rootView.findViewById(R.id.txtTitle);
+//        mTxtTitle.setText(getArguments().getString(TEXT_FRAGMENT));
+
+		rootView.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.MATCH_PARENT ));		
 		return rootView;		
 	}
-	
+
+	@Override
+	public void onResume() {
+		super.onResume();
+		mTxtTitle.setText("NKaNa (My Sister and Brother) aims to connect professionals " +
+				"with children in need and risk. This project consists of Mentee (Children), Mentor (Professional) and student Volunteer. " +
+				"This program revolves around developing a goal-oriented relationship between a progressing child and a mentor who induces " +
+				"a critical guiding force making the children become fruitful in their respective dreams. " +
+				"The mentors act as exemplary role models and the children look up to " +
+				"their respective mentors and seek career related advices from them and hence " +
+				"the name N’KaNa. The student volunteers will be engaged as a rapporteurs.");
+	}
+
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -141,42 +133,4 @@ public class PlacesFragment extends Fragment {
            return false;
        }
    };
-
-	private void getGroupsList() {
-
-		RestClient.get().groupsList(authKey, new Callback<List<GroupResponseList>>() {
-
-			@Override
-			public void success(final List<GroupResponseList> groupResponseList, Response response) {
-				final ArrayList<String> list = new ArrayList<String>();
-				for(int index=0;index<groupResponseList.size();index++){
-					list.add(groupResponseList.get(index).getGroupName());
-					Log.i(LOG_TAG, "Group name: " + groupResponseList.get(index).getGroupName());
-				}
-				if(list.size() > 0){
-					ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(),
-							android.R.layout.simple_list_item_1, android.R.id.text1, list);
-					listview.setAdapter(adapter);
-					Log.i(LOG_TAG, "List size: " + list.size() + "adapter" + adapter + "listview" + listview);
-					listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-						@Override
-						public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-							String groupId = groupResponseList.get(position).getGroupId();
-							Log.i(LOG_TAG, "Group id: " + groupResponseList.get(position).getGroupId());
-						}
-					});
-				}
-
-			}
-
-			@Override
-			public void failure(RetrofitError error) {
-				RestLoginError restLoginError = (RestLoginError) error.getBodyAs(RestLoginError.class);
-				if (restLoginError != null) {
-					Log.i(LOG_TAG, "Non field error: " + restLoginError.detail);
-					Toast.makeText(getActivity(), "" + restLoginError.detail, Toast.LENGTH_LONG).show();
-				}
-			}
-		});
-	}
 }

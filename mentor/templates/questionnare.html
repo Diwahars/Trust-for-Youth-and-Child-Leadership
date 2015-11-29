@@ -1,0 +1,319 @@
+{% extends "base.html" %}
+
+{% block head_content %}
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'volunteer/css/profile.css' %}" charset="utf-8"></script>
+{% endblock %}
+
+{% block opt_content %}<img src="{% static 'nkana/images/a.jpg' %}" class="questionaries-bg"/>{% endblock %}
+
+{% block content %}
+        <div class="row">
+            <div class="col-lg-4 col-md-4 header-questionaries"><h4>Indicators</h4></div>
+            <div class="col-lg-4 col-md-4"><h4 class="header-rating">Rating *</h4></div>
+             <div class="col-lg-4 col-md-4"><h4>Remarks</h4></div>
+        </div>
+        
+        <form name="questionaries" action="/mentor/questionnare/" method="POST" />
+        {% csrf_token %}
+		<div class="row">
+            <div class="col-lg-4 col-md-4 indicator">
+                Educational performance at the school
+            </div>
+            <div class="custom-dropdown big col-lg-1 col-md-1">
+                <select name="Educational performance at the school">
+                    <option>1</option>
+                    <option>2</option>  
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>  
+                    <option>8</option>
+                    <option>9</option>
+                    <option>10</option>
+                </select>
+            </div>
+            <div col-lg-4 col-md-4>
+                <textarea name="Educational performance at the school_d" class="remarks-input" rows='5' cols="45"></textarea>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-4 col-md-4 indicator">
+                Health (physical and Mental well-being)condition of the child
+            </div>
+            <div class="custom-dropdown big col-lg-1 col-md-1">
+                <select name="Health (physical and Mental well-being)condition of the child">
+                    <option>1</option>
+                    <option>2</option>  
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>  
+                    <option>8</option>
+                    <option>9</option>
+                    <option>10</option>
+                </select>
+            </div>
+            <div col-lg-4 col-md-4>
+                <textarea name="Health (physical and Mental well-being)condition of the child_d" class="remarks-input" rows='5' cols="45"></textarea>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-4 col-md-4 indicator">
+                Child relationship with family members
+            </div>
+            <div class="custom-dropdown big col-lg-1 col-md-1">
+                <select name="Child relationship with family members">
+                    <option>1</option>
+                    <option>2</option>  
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>  
+                    <option>8</option>
+                    <option>9</option>
+                    <option>10</option>
+                </select>
+            </div>
+            <div col-lg-4 col-md-4>
+                <textarea name="Child relationship with family members_d" class="remarks-input" rows='5' cols="45"></textarea>
+            </div>
+        </div>
+        
+
+        <div class="row">
+            <div class="col-lg-4 col-md-4 indicator">
+                Child relationship with friends
+            </div>
+            <div name="Child relationship with friends" class="custom-dropdown big col-lg-1 col-md-1">
+                <select name="Child relationship with friends">
+                    <option>1</option>
+                    <option>2</option>  
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>  
+                    <option>8</option>
+                    <option>9</option>
+                    <option>10</option>
+                </select>
+            </div>
+            <div col-lg-4 col-md-4>
+                <textarea name="Child relationship with friends_d" class="remarks-input" rows='5' cols="45"></textarea>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-lg-4 col-md-4 indicator">
+                Participation in co-curricular activities 
+            </div>
+            <div class="custom-dropdown big col-lg-1 col-md-1">
+                <select name="Participation in co-curricular activities">
+                    <option>1</option>
+                    <option>2</option>  
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>  
+                    <option>8</option>
+                    <option>9</option>
+                    <option>10</option>
+                </select>
+            </div>
+            <div col-lg-4 col-md-4>
+                <textarea name="Participation in co-curricular activities_d" class="remarks-input" rows='5' cols="45"></textarea>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-4 col-md-4 indicator">
+                Participation in social/community events
+            </div>
+            <div class="custom-dropdown big col-lg-1 col-md-1">
+                <select name="Participation in social/community events">
+                    <option>1</option>
+                    <option>2</option>  
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>  
+                    <option>8</option>
+                    <option>9</option>
+                    <option>10</option>
+                </select>
+            </div>
+            <div col-lg-4 col-md-4>
+                <textarea name="Participation in social/community events_d" class="remarks-input" rows='5' cols="45"></textarea>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-lg-4 col-md-4 indicator">
+                Feeling safe at Home, community   and School 
+            </div>
+            <div class="custom-dropdown big col-lg-1 col-md-1">
+                <select name="Feeling safe at Home, community   and School">
+                    <option>1</option>
+                    <option>2</option>  
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>  
+                    <option>8</option>
+                    <option>9</option>
+                    <option>10</option>
+                </select>
+            </div>
+            <div col-lg-4 col-md-4>
+                <textarea name="Feeling safe at Home, community   and School_d" class="remarks-input" rows='5' cols="45"></textarea>
+            </div>
+        </div>
+         
+        <div class="row">
+            <div class="col-lg-4 col-md-4 indicator">
+                Social interaction with peers 
+            </div>
+            <div class="custom-dropdown big col-lg-1 col-md-1">
+                <select name="Social interaction with peers">
+                    <option>1</option>
+                    <option>2</option>  
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>  
+                    <option>8</option>
+                    <option>9</option>
+                    <option>10</option>
+                </select>
+            </div>
+            <div col-lg-4 col-md-4>
+                <textarea name="Social interaction with peers_d" class="remarks-input" rows='5' cols="45"></textarea>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-md-4 indicator">
+                Personal hygiene of the child
+            </div>
+            <div class="custom-dropdown big col-lg-1 col-md-1">
+                <select name="Personal hygiene of the child">
+                    <option>1</option>
+                    <option>2</option>  
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>  
+                    <option>8</option>
+                    <option>9</option>
+                    <option>10</option>
+                </select>
+            </div>
+            <div col-lg-4 col-md-4>
+                <textarea name="Personal hygiene of the child_d" class="remarks-input" rows='5' cols="45"></textarea>
+            </div>
+        </div>
+
+        <div class="notify-rating">* Rating scale: 1= Poor & 10 = Excellent</div>
+        <div class="details-form">
+        	<h3 class="hd-report">Descriptive Report</h3>
+            
+            <div class="pull-left report-title">
+            	Date of meeting
+            </div>
+            <div class="pull-left report-input">
+            	<input name="Date of meeting" type="text" class="form-control"/>
+            </div>
+            
+            <div class="clearfix"></div>
+            
+            <div class="pull-left report-title">
+            	Place of meeting
+            </div>
+            <div class="pull-left report-input">
+            	<input type="text" name="Place of meeting" class="form-control" />
+            </div>
+            
+            <div class="clearfix"></div>
+            
+            <div class="pull-left report-title">
+            	Meeting Agenda
+            </div>
+            <div class="pull-left report-input">
+                <input type="text" name="Meeting Agenda" class="form-control" />
+            </div>
+            <div class="clearfix"></div>
+            
+            <div class="pull-left report-title">
+            	Outcome of Meeting
+            </div>
+            <div class="pull-left report-input">
+            <textarea name="Outcome of Meeting" class="outcome-meeting" rows='5' cols="45"></textarea>
+            </div>
+             <div class="clearfix"></div>
+            <div class="pull-left report-title">
+            	Key Accomplishment
+            </div>
+            <div class="pull-left report-input">
+                <input type="text" name="Key Accomplishment" class="form-control" />
+            </div>
+            
+            <div class="clearfix"></div>
+            <div class="pull-left report-title">
+            	Purpose of Connection
+            </div>
+            <div class="pull-left report-input">
+                <input type="text" name="Purpose of Connection" class="form-control" />
+            </div>
+            <div class="clearfix"></div>
+            <div class="pull-left report-title">
+            	Key learnings for Mentee
+            </div>
+            <div class="pull-left report-input">
+                <input type="text" name="Key learnings for Mentee" class="form-control" />
+             </div>
+             
+             <div class="clearfix"></div>
+            <div class="pull-left report-title">
+            	Key Challenges faced by volunteer
+            </div>
+            <div class="pull-left report-input">
+                <input type="text" name="Key Challenges faced by volunteer" class="form-control" />
+             </div>
+             
+             <div class="clearfix"></div>
+            <div class="pull-left report-title">
+            	Key Challenges faced by mentee
+
+            </div>
+            <div class="pull-left report-input">
+                <input type="text" name="Key Challenges faced by mentee" class="form-control" />
+             </div>
+             <div class="clearfix"></div>
+            <div class="pull-left report-title">
+            	Key Challenges faced by mentor
+
+            </div>
+            <div class="pull-left report-input">
+            <input type="text" class="form-control" />
+             </div>
+             <div class="clearfix"></div>
+             <div class="button-section">
+             <input type="submit" name="Sign Up" style="margin-bottom: 60px"/>
+             
+            </div>
+        </div>
+       </form> 
+
+    <!-- /.container -->
+
+{% endblock %}

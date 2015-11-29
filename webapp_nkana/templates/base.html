@@ -39,6 +39,13 @@
     <div class="pull-left trustname">
         <a href="#">N'KaNa</a>
     </div>
+
+            {% if user.is_authenticated %}
+                <div style="float:right;margin-right:17px;margin-top:20px;color:white;"><span>{{ user }}</span><a style="color:white;margin-left:10px" href="/logout">Logout</a></div>
+            {% else %}
+                <div style="float:right;margin-right:17px;margin-top:20px;color:white;"><a style="color:white;margin-left:10px" href="/selfservice/registration">Login</a></div>
+            {% endif %}
+
         <ul id="nav" class="pull-right">
     
 
@@ -46,59 +53,36 @@
         <a href="#">About</a>
         <ul>
             <li><a href="#">The product</a></li>
-
             <li><a href="#">Meet the team</a></li>
         </ul>
     </li>
     <li>
-        <a href="#">Services</a>
+        <a href="#">Mentor</a>
 
         <ul>
-            <li><a href="#">Sevice one</a></li>
-            <li><a href="#">Sevice two</a></li>
+            <li><a href="/mentor/profile">Profile Registration</a></li>
+            <li><a href="/mentor/landing">Welcome</a></li>
 
-            <li><a href="#">Sevice three</a></li>
-            <li><a href="#">Sevice four</a></li>
+            <li><a href="/insights">Insights</a></li>
         </ul>
 
     </li>
     <li>
         <a href="#">Volunteer</a>
         <ul>
-            <li><a href="#">Small product (one)</a></li>
-
-            <li><a href="#">Small product (two)</a></li>
-            <li><a href="#">Small product (three)</a></li>
-            <li><a href="#">Small product (four)</a></li>
-
-            
-        </ul>
-    </li>
-    <li>
-        <a href="#">Children</a>
-        <ul>
-            <li><a href="#">Small product (one)</a></li>
-
-            <li><a href="#">Small product (two)</a></li>
-            <li><a href="#">Small product (three)</a></li>
-            <li><a href="#">Small product (four)</a></li>
-
-            
+            <li><a href="/volunteer/profile">Profile Registration</a></li>
         </ul>
     </li>
     <li>
         <a href="#">Contact</a>
-
         <ul>
-            <li><a href="#">Out-of-hours</a></li>
-            <li><a href="#">Directions</a></li>
-
+            <li><a href="#">Email</a></li>
         </ul>
     </li>
 </ul>
         <!-- /.container -->
     </nav>
-
+    {% block opt_content %}{% endblock %}
     <!-- Page Content -->
     <div class="container">
 

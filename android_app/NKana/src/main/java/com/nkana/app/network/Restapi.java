@@ -3,6 +3,7 @@ package com.nkana.app.network;
 import com.nkana.app.model.ChangePassword;
 import com.nkana.app.model.DeviceConfig;
 import com.nkana.app.model.Groups;
+import com.nkana.app.model.Login;
 import com.nkana.app.network.Responses.GroupDeleteResponse;
 import com.nkana.app.network.Responses.GroupResponse;
 import com.nkana.app.network.Responses.GroupResponseList;
@@ -12,7 +13,9 @@ import com.nkana.app.network.Responses.MembersDeleteResponse;
 import com.nkana.app.network.Responses.MembersInfoResponse;
 import com.nkana.app.network.Responses.RegisterResponse;
 import com.nkana.app.model.Registration;
+import com.nkana.app.network.Responses.RetriveProfileResponse;
 import com.nkana.app.network.Responses.UpdateProfileResponse;
+import com.nkana.app.network.Responses.UtilizationResponse;
 
 import java.util.List;
 
@@ -24,14 +27,22 @@ import retrofit.http.Header;
 import retrofit.http.POST;
 import retrofit.http.PUT;
 import retrofit.http.Path;
+import retrofit.http.Query;
 
 /**
  * Created by chokkar
  */
 
 public interface Restapi {
-    @POST("/account/login/")
-    void login(@Body DeviceConfig deviceConfig, Callback<LoginResponse> callback);
+
+    @POST("/login/")
+    void login(@Body Login login, Callback<LoginResponse> callback);
+
+    @GET("/volunteer/rest/profile")
+    void retriveProfile(@Query("retrive_profile") String retrive_profile, Callback<RetriveProfileResponse> callback);
+
+    @GET("/rest/insights?utilization")
+    void utilizationValues(Callback<UtilizationResponse> callback);
 
     @POST("/account/register/")
     void register(@Body Registration registration, Callback<RegisterResponse> callback);

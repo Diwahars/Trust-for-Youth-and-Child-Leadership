@@ -1,8 +1,6 @@
 package com.nkana.app.activity;
 
-import android.app.Notification;
-import android.app.NotificationManager;
-import android.app.PendingIntent;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -21,9 +19,10 @@ import com.nkana.app.R;
 import com.nkana.app.data.DBConnection;
 import com.nkana.app.fragment.GraphSetupFragment;
 import com.nkana.app.fragment.GroupSetupFragment;
-import com.nkana.app.fragment.AboutFragment;
-import com.nkana.app.fragment.QuestionerFragment;
-import com.nkana.app.fragment.TrackerFragment;
+import com.nkana.app.fragment.MembersSetupFragment;
+import com.nkana.app.fragment.PlacesFragment;
+import com.nkana.app.fragment.RemindersFragment;
+import com.nkana.app.fragment.ViewPagerFragment;
 import com.nkana.app.network.Responses.RegisterResponse;
 import com.nkana.app.network.Responses.UpdateProfileResponse;
 import com.nkana.app.network.RestClient;
@@ -42,8 +41,9 @@ import retrofit.client.Response;
 /**
  * Created by Chokkar G
  */
-public class VolunteerMainActivity extends NavigationLiveo implements OnItemClickListener {
-    private static final String LOG_TAG = VolunteerMainActivity.class.getSimpleName();
+public class AdminMainActivity extends NavigationLiveo implements OnItemClickListener {
+    private static final String LOG_TAG = AdminMainActivity.class.getSimpleName();
+    ProgressDialog progressDialog;
     private Context mContext;
     SharedPreferences preferences;
     private String authKey;
@@ -64,32 +64,12 @@ public class VolunteerMainActivity extends NavigationLiveo implements OnItemClic
         dbConnection = new DBConnection(mContext);
         preferences = getSharedPreferences(IConstants.AUTH_TOKEN, MODE_PRIVATE);
         authKey = preferences.getString(IConstants.AUTHORIZATION, null);
-        notification();
-//        if (dbConnection.checkUserAvailable()) {
-//            checkUserProfile();
-//        } else {
-////            getProfile();
-//        }
-    }
 
-
-    private void notification(){
-        Intent intent = new Intent(this, VolunteerMainActivity.class);
-        // use System.currentTimeMillis() to have a unique ID for the pending intent
-        PendingIntent pIntent = PendingIntent.getActivity(this, (int) System.currentTimeMillis(), intent, 0);
-
-        // build notification
-// the addAction re-use the same intent to keep the example short
-        Notification n  = new Notification.Builder(this)
-                .setContentTitle("NKana Notification")
-                .setContentText("The Tracker not updated")
-                .setSmallIcon(R.mipmap.ic_stat_nkana_logo)
-                .setContentIntent(pIntent)
-                .setAutoCancel(true).build();
-        NotificationManager notificationManager =
-                (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-
-        notificationManager.notify(0,n);
+        if (dbConnection.checkUserAvailable()) {
+            checkUserProfile();
+        } else {
+//            getProfile();
+        }
     }
 
 
@@ -176,9 +156,9 @@ public class VolunteerMainActivity extends NavigationLiveo implements OnItemClic
 
         // Creating items navigation
         mHelpLiveo = new HelpLiveo();
-        mHelpLiveo.add(getString(R.string.monitor), R.mipmap.ic_star_black_24dp);
         mHelpLiveo.add(getString(R.string.questioner), R.mipmap.ic_inbox_black_24dp);
 //        mHelpLiveo.addSubHeader(getString(R.string.categories)); //Item subHeader
+        mHelpLiveo.add(getString(R.string.monitor), R.mipmap.ic_star_black_24dp);
         mHelpLiveo.add(getString(R.string.tracker), R.mipmap.ic_send_black_24dp);
         mHelpLiveo.addSeparator(); // Item separator
         mHelpLiveo.add(getString(R.string.about), R.mipmap.ic_report_black_24dp);
@@ -234,25 +214,21 @@ public class VolunteerMainActivity extends NavigationLiveo implements OnItemClic
                 updateTilteBar(position);
                 break;
             case 1:
-                mFragment = QuestionerFragment.newInstance(mHelpLiveo.get(position).getName());
+                mFragment = PlacesFragment.newInstance(mHelpLiveo.get(position).getName());
                 updateTilteBar(position);
                 break;
             case 2:
-                mFragment = TrackerFragment.newInstance(mHelpLiveo.get(position).getName());
+                mFragment = MembersSetupFragment.newInstance(mHelpLiveo.get(position).getName());
                 updateTilteBar(position);
                 break;
             case 3:
-                mFragment = AboutFragment.newInstance(mHelpLiveo.get(position).getName());
+                mFragment = RemindersFragment.newInstance(mHelpLiveo.get(position).getName());
                 updateTilteBar(position);
                 break;
             case 4:
-                mFragment = AboutFragment.newInstance(mHelpLiveo.get(position).getName());
+                mFragment = new ViewPagerFragment();
                 updateTilteBar(position);
                 break;
-//            case 4:
-//                mFragment = new ViewPagerFragment();
-//                updateTilteBar(position);
-//                break;
             default:
                 mFragment = GroupSetupFragment.newInstance(mHelpLiveo.get(position).getName());
                 updateTilteBar(position);

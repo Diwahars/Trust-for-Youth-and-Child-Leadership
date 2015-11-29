@@ -79,16 +79,17 @@ public class MendorMainActivity extends NavigationLiveo implements OnItemClickLi
         if (id == R.id.action_logout) {
             logout();
             return true;
-        } else if (id == R.id.action_update){
-            Intent intent = new Intent(mContext, UpdateProfile.class);
-            startActivity(intent);
         }
+//        else if (id == R.id.action_update){
+//            Intent intent = new Intent(mContext, UpdateProfile.class);
+//            startActivity(intent);
+//        }
 
         return super.onOptionsItemSelected(item);
     }
 
     private void logout() {
-        RestClient.setupRestClient();
+
         RestClient.get().logout(authKey, new Callback<RegisterResponse>() {
             @Override
             public void success(RegisterResponse registerResponse, Response response) {
@@ -98,7 +99,7 @@ public class MendorMainActivity extends NavigationLiveo implements OnItemClickLi
                 SharedPreferences.Editor editor = getSharedPreferences(IConstants.AUTH_TOKEN, MODE_PRIVATE).edit();
                 editor.putString(IConstants.AUTHORIZATION, null);
                 editor.commit();
-                Intent loginIntent = new Intent(mContext , LoginMendorActivity.class);
+                Intent loginIntent = new Intent(mContext , MendorRegistrationActivity.class);
                 startActivity(loginIntent);
                 finish();
             }
@@ -111,7 +112,7 @@ public class MendorMainActivity extends NavigationLiveo implements OnItemClickLi
     }
 
     private void getProfile() {
-        RestClient.setupRestClient();
+
         RestClient.get().userProfile(authKey, new Callback<UpdateProfileResponse>() {
             @Override
             public void success(UpdateProfileResponse loginResponse, Response response) {
@@ -147,12 +148,12 @@ public class MendorMainActivity extends NavigationLiveo implements OnItemClickLi
 
         // Creating items navigation
         mHelpLiveo = new HelpLiveo();
-        mHelpLiveo.add(getString(R.string.history), R.mipmap.ic_inbox_black_24dp);
+        mHelpLiveo.add(getString(R.string.questioner), R.mipmap.ic_inbox_black_24dp);
 //        mHelpLiveo.addSubHeader(getString(R.string.categories)); //Item subHeader
         mHelpLiveo.add(getString(R.string.monitor), R.mipmap.ic_star_black_24dp);
-        mHelpLiveo.add(getString(R.string.statistics), R.mipmap.ic_send_black_24dp);
+        mHelpLiveo.add(getString(R.string.tracker), R.mipmap.ic_send_black_24dp);
         mHelpLiveo.addSeparator(); // Item separator
-        mHelpLiveo.add(getString(R.string.help), R.mipmap.ic_report_black_24dp);
+        mHelpLiveo.add(getString(R.string.about), R.mipmap.ic_report_black_24dp);
 
         //{optional} - Header Customization - method customHeader
 //        View mCustomHeader = getLayoutInflater().inflate(R.layout.custom_header_user, this.getListView(), false);

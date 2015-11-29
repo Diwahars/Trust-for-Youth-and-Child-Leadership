@@ -121,7 +121,7 @@ $(function () {
             text: 'Meeting Frequency of Volunteers'
         },
         subtitle: {
-            text: 'Source: <a href="https://en.wikipedia.org/wiki/World_population">Wikipedia.org</a>'
+            text: 'Source: Conventional form Data'
         },
         xAxis: {
             categories: {{ mc_m|safe }},
@@ -172,10 +172,58 @@ $(function () {
 
 </script>
 
+<script>
+
+    $(function () {
+    $('#container3').highcharts({
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: 'Weekly Effort Distribution'
+        },
+        subtitle: {
+            text: 'Source: Accumulated Conventional form data'
+        },
+        xAxis: {
+            categories: {{ df_k|safe }},
+            crosshair: true
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: 'Cumulative Hours'
+            }
+        },
+        tooltip: {
+            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                '<td style="padding:0"><b>{point.y:.1f} Hrs</b></td></tr>',
+            footerFormat: '</table>',
+            shared: true,
+            useHTML: true
+        },
+        plotOptions: {
+            column: {
+                pointPadding: 0.2,
+                borderWidth: 0
+            }
+        },
+        series: [{
+            name: 'Frequency',
+            data: {{ df_v|safe }}
+
+        }]
+    });
+});
+
+</script>
+
 {% endblock %}
 
 {% block content %}
 <div id="container" style="height: 400px;width: 700px;float:left"></div>
 <div id="container1" style="height: 400px;width: 700px;float:right"></div>
-<div id="container2" style="height: 400px;width: 600px;margin: 0 auto; clear:both;"></div>
+<div id="container2" style="height: 400px;width: 700px;margin: 0 auto; float:left"></div>
+<div id="container3" style="height: 400px;width: 700px;margin: 0 auto; float:left"></div>
 {% endblock %}
