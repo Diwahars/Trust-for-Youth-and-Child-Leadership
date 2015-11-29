@@ -147,10 +147,10 @@ public class MendorMainActivity extends NavigationLiveo implements OnItemClickLi
 
         // Creating items navigation
         mHelpLiveo = new HelpLiveo();
-        mHelpLiveo.add(getString(R.string.history), R.mipmap.ic_inbox_black_24dp);
+        mHelpLiveo.add(getString(R.string.questioner), R.mipmap.ic_inbox_black_24dp);
 //        mHelpLiveo.addSubHeader(getString(R.string.categories)); //Item subHeader
         mHelpLiveo.add(getString(R.string.monitor), R.mipmap.ic_star_black_24dp);
-        mHelpLiveo.add(getString(R.string.statistics), R.mipmap.ic_send_black_24dp);
+        mHelpLiveo.add(getString(R.string.tracker), R.mipmap.ic_send_black_24dp);
         mHelpLiveo.addSeparator(); // Item separator
         mHelpLiveo.add(getString(R.string.help), R.mipmap.ic_report_black_24dp);
 

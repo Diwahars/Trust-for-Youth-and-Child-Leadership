@@ -32,9 +32,9 @@
 
     <string name="sign_in">Sign in</string>
 
-    <string name="history">History</string>
+    <string name="questioner">Questioner</string>
     <string name="monitor">Monitor</string>
-    <string name="statistics">Statistics</string>
+    <string name="tracker">Tracker</string>
     <string name="remainders">Reminders</string>
     <string name="categories">Categories</string>
     <string name="locationsharing">Location Sharing</string>

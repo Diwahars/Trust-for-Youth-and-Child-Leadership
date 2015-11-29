@@ -16,10 +16,12 @@ import android.widget.Toast;
 import com.nkana.app.Constants.IConstants;
 import com.nkana.app.R;
 import com.nkana.app.data.DBConnection;
+import com.nkana.app.fragment.GraphSetupFragment;
 import com.nkana.app.fragment.GroupSetupFragment;
 import com.nkana.app.fragment.MembersSetupFragment;
-import com.nkana.app.fragment.PlacesFragment;
 import com.nkana.app.fragment.RemindersFragment;
+import com.nkana.app.fragment.QuestionerFragment;
+import com.nkana.app.fragment.TrackerFragment;
 import com.nkana.app.fragment.ViewPagerFragment;
 import com.nkana.app.network.Responses.RegisterResponse;
 import com.nkana.app.network.Responses.UpdateProfileResponse;
@@ -149,10 +151,10 @@ public class VolunteerMainActivity extends NavigationLiveo implements OnItemClic
 
         // Creating items navigation
         mHelpLiveo = new HelpLiveo();
-        mHelpLiveo.add(getString(R.string.history), R.mipmap.ic_inbox_black_24dp);
-//        mHelpLiveo.addSubHeader(getString(R.string.categories)); //Item subHeader
         mHelpLiveo.add(getString(R.string.monitor), R.mipmap.ic_star_black_24dp);
-        mHelpLiveo.add(getString(R.string.statistics), R.mipmap.ic_send_black_24dp);
+        mHelpLiveo.add(getString(R.string.questioner), R.mipmap.ic_inbox_black_24dp);
+//        mHelpLiveo.addSubHeader(getString(R.string.categories)); //Item subHeader
+        mHelpLiveo.add(getString(R.string.tracker), R.mipmap.ic_send_black_24dp);
         mHelpLiveo.addSeparator(); // Item separator
         mHelpLiveo.add(getString(R.string.help), R.mipmap.ic_report_black_24dp);
 
@@ -203,15 +205,15 @@ public class VolunteerMainActivity extends NavigationLiveo implements OnItemClic
 
         switch (position){
             case 0:
-                mFragment = GroupSetupFragment.newInstance(mHelpLiveo.get(position).getName());
+                mFragment = GraphSetupFragment.newInstance(mHelpLiveo.get(position).getName());
                 updateTilteBar(position);
                 break;
             case 1:
-                mFragment = PlacesFragment.newInstance(mHelpLiveo.get(position).getName());
+                mFragment = QuestionerFragment.newInstance(mHelpLiveo.get(position).getName());
                 updateTilteBar(position);
                 break;
             case 2:
-                mFragment = MembersSetupFragment.newInstance(mHelpLiveo.get(position).getName());
+                mFragment = TrackerFragment.newInstance(mHelpLiveo.get(position).getName());
                 updateTilteBar(position);
                 break;
             case 3:
