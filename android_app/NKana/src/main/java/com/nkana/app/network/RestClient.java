@@ -1,6 +1,7 @@
 package com.nkana.app.network;
 
-import com.nkana.app.model.Login;
+import com.nkana.app.network.Restapi;
+import com.nkana.app.network.SessionRequestInterceptor;
 import com.squareup.okhttp.OkHttpClient;
 import java.security.cert.CertificateException;
 import javax.net.ssl.HostnameVerifier;
@@ -14,43 +15,29 @@ import retrofit.RestAdapter;
 import retrofit.client.OkClient;
 
 /**
- * Created by chokkar
+ * Created by Android Team
  */
 
 public class RestClient {
 
     private static Restapi REST_CLIENT;
     private static String ROOT =
-            "https://52.22.24.182/api/v1/";
+            "http://192.168.117.71:8000";
 
-   /* static {
+    static {
         setupRestClient();
     }
-*/
+
     public static Restapi get() {
         return REST_CLIENT;
     }
 
-    public static void setupRestClient() {
-        RestAdapter restAdapter = new RestAdapter.Builder()
-                .setLogLevel(RestAdapter.LogLevel.FULL)
-                .setEndpoint(ROOT)
-                .setClient(new OkClient(getUnsafeOkHttpClient()))
-                .setRequestInterceptor(new SessionRequestInterceptor())
-                .build();
-
-        REST_CLIENT = restAdapter.create(Restapi.class);
-    }
-
-    public static void setupLoginRestClient(Login user) {
-        ApiRequestInterceptor requestInterceptor = new ApiRequestInterceptor();
-        requestInterceptor.setUser(user);
+    private static void setupRestClient() {
 
         RestAdapter restAdapter = new RestAdapter.Builder()
                 .setLogLevel(RestAdapter.LogLevel.FULL)
                 .setEndpoint(ROOT)
-                .setClient(new OkClient(getUnsafeOkHttpClient()))
-                .setRequestInterceptor(requestInterceptor)
+                .setClient(new OkClient(new OkHttpClient()))
                 .build();
 
         REST_CLIENT = restAdapter.create(Restapi.class);

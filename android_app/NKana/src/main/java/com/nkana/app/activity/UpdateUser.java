@@ -73,7 +73,7 @@ public class UpdateUser extends AppCompatActivity {
                     Toast.makeText(UpdateUser.this, "Mobile Number cannot be empty", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                RestClient.setupRestClient();
+
                 RestClient.get().userUpdateProfile(authKey, new Callback<UpdateProfileResponse>() {
                     @Override
                     public void success(UpdateProfileResponse loginResponse, Response response) {

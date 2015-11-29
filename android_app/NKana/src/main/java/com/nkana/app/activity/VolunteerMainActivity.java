@@ -64,7 +64,7 @@ public class VolunteerMainActivity extends NavigationLiveo implements OnItemClic
         if (dbConnection.checkUserAvailable()) {
             checkUserProfile();
         } else {
-            getProfile();
+//            getProfile();
         }
     }
 
@@ -90,7 +90,7 @@ public class VolunteerMainActivity extends NavigationLiveo implements OnItemClic
     }
 
     private void logout() {
-        RestClient.setupRestClient();
+
         RestClient.get().logout(authKey, new Callback<RegisterResponse>() {
             @Override
             public void success(RegisterResponse registerResponse, Response response) {
@@ -100,7 +100,7 @@ public class VolunteerMainActivity extends NavigationLiveo implements OnItemClic
                 SharedPreferences.Editor editor = getSharedPreferences(IConstants.AUTH_TOKEN, MODE_PRIVATE).edit();
                 editor.putString(IConstants.AUTHORIZATION, null);
                 editor.commit();
-                Intent loginIntent = new Intent(mContext , LoginMendorActivity.class);
+                Intent loginIntent = new Intent(mContext , MendorRegistrationActivity.class);
                 startActivity(loginIntent);
                 finish();
             }
@@ -113,7 +113,7 @@ public class VolunteerMainActivity extends NavigationLiveo implements OnItemClic
     }
 
     private void getProfile() {
-        RestClient.setupRestClient();
+
         RestClient.get().userProfile(authKey, new Callback<UpdateProfileResponse>() {
             @Override
             public void success(UpdateProfileResponse loginResponse, Response response) {
@@ -153,8 +153,6 @@ public class VolunteerMainActivity extends NavigationLiveo implements OnItemClic
 //        mHelpLiveo.addSubHeader(getString(R.string.categories)); //Item subHeader
         mHelpLiveo.add(getString(R.string.monitor), R.mipmap.ic_star_black_24dp);
         mHelpLiveo.add(getString(R.string.statistics), R.mipmap.ic_send_black_24dp);
-        mHelpLiveo.add(getString(R.string.remainders), R.mipmap.ic_drafts_black_24dp);
-        mHelpLiveo.add(getString(R.string.locationsharing), R.mipmap.ic_delete_black_24dp);
         mHelpLiveo.addSeparator(); // Item separator
         mHelpLiveo.add(getString(R.string.help), R.mipmap.ic_report_black_24dp);
 

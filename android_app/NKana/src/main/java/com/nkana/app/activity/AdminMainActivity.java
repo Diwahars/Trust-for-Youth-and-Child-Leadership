@@ -1,5 +1,6 @@
 package com.nkana.app.activity;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -16,13 +17,16 @@ import android.widget.Toast;
 import com.nkana.app.Constants.IConstants;
 import com.nkana.app.R;
 import com.nkana.app.data.DBConnection;
+import com.nkana.app.fragment.GraphSetupFragment;
 import com.nkana.app.fragment.GroupSetupFragment;
 import com.nkana.app.fragment.MembersSetupFragment;
 import com.nkana.app.fragment.PlacesFragment;
 import com.nkana.app.fragment.RemindersFragment;
 import com.nkana.app.fragment.ViewPagerFragment;
+import com.nkana.app.model.GeneralError;
 import com.nkana.app.network.Responses.RegisterResponse;
 import com.nkana.app.network.Responses.UpdateProfileResponse;
+import com.nkana.app.network.Responses.UtilizationResponse;
 import com.nkana.app.network.RestClient;
 import com.nkana.app.network.RestError.RestLoginError;
 
@@ -39,8 +43,9 @@ import retrofit.client.Response;
 /**
  * Created by Chokkar G
  */
-public class ChildrenMainActivity extends NavigationLiveo implements OnItemClickListener {
-    private static final String LOG_TAG = ChildrenMainActivity.class.getSimpleName();
+public class AdminMainActivity extends NavigationLiveo implements OnItemClickListener {
+    private static final String LOG_TAG = AdminMainActivity.class.getSimpleName();
+    ProgressDialog progressDialog;
     private Context mContext;
     SharedPreferences preferences;
     private String authKey;
@@ -61,12 +66,15 @@ public class ChildrenMainActivity extends NavigationLiveo implements OnItemClick
         dbConnection = new DBConnection(mContext);
         preferences = getSharedPreferences(IConstants.AUTH_TOKEN, MODE_PRIVATE);
         authKey = preferences.getString(IConstants.AUTHORIZATION, null);
+
         if (dbConnection.checkUserAvailable()) {
-//            checkUserProfile();
+            checkUserProfile();
         } else {
 //            getProfile();
         }
     }
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -203,7 +211,7 @@ public class ChildrenMainActivity extends NavigationLiveo implements OnItemClick
 
         switch (position){
             case 0:
-                mFragment = GroupSetupFragment.newInstance(mHelpLiveo.get(position).getName());
+                mFragment = GraphSetupFragment.newInstance(mHelpLiveo.get(position).getName());
                 updateTilteBar(position);
                 break;
             case 1:
