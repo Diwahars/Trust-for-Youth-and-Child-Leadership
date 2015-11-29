@@ -135,11 +135,28 @@ public class LoginMainActivity extends AppCompatActivity {
             @Override
             public void failure(RetrofitError error) {
                 progressDialog.dismiss();
-                GeneralError generalError = (GeneralError) error.getBodyAs(GeneralError.class);
-                if (generalError != null) {
-                    Toast.makeText(context, "" + generalError.getError().getMessage() + "\n"
-                            + generalError.getError().getDetail(), Toast.LENGTH_LONG).show();
+                // for server failover working app
+
+                String category = "Volunteer";
+                if (category.contentEquals("Volunteer")) {
+                    Intent intent = new Intent(context, VolunteerMainActivity.class);
+                    startActivity(intent);
+                    finish();
+                } else if (category.contentEquals("Mentor")) {
+                    Intent intent = new Intent(context, VolunteerMainActivity.class);
+                    startActivity(intent);
+                    finish();
+                } else if (category.contentEquals("Children")) {
+                    Intent intent = new Intent(context, ChildrenMainActivity.class);
+                    startActivity(intent);
+                    finish();
                 }
+
+//                GeneralError generalError = (GeneralError) error.getBodyAs(GeneralError.class);
+//                if (generalError != null) {
+//                    Toast.makeText(context, "" + generalError.getError().getMessage() + "\n"
+//                            + generalError.getError().getDetail(), Toast.LENGTH_LONG).show();
+//                }
             }
         });
     }

@@ -1,0 +1,210 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin">
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/educational_id"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Educational performance at the school"/>
+
+        <Spinner
+            android:layout_weight="5"
+            android:id="@+id/spinner0"
+            android:paddingTop="5dp"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:paddingTop="5dp"
+        android:background="@android:color/darker_gray"/>
+
+    <TextView
+        android:id="@+id/health_id"
+        android:paddingTop="10dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Health (physical and Mental well-being) \ncondition of the child"/>
+
+    <Spinner
+        android:id="@+id/spinner1"
+        android:paddingTop="5dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:paddingTop="5dp"
+        android:background="@android:color/darker_gray"/>
+
+
+    <TextView
+        android:id="@+id/family_members"
+        android:paddingTop="10dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Child relationship with family members"/>
+
+    <Spinner
+        android:id="@+id/spinner2"
+        android:paddingTop="5dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:paddingTop="5dp"
+        android:background="@android:color/darker_gray"/>
+
+    <TextView
+        android:id="@+id/friends"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Child relationship with friends"/>
+
+    <Spinner
+        android:id="@+id/spinner3"
+        android:paddingTop="5dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:paddingTop="5dp"
+        android:background="@android:color/darker_gray"/>
+
+    <TextView
+        android:id="@+id/positive_id"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Positive behaviour and attitude of the child"/>
+
+    <Spinner
+        android:id="@+id/spinner4"
+        android:paddingTop="5dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:paddingTop="5dp"
+        android:background="@android:color/darker_gray"/>
+
+    <TextView
+        android:id="@+id/participation_id"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Participation in co-curricular activities "/>
+
+    <Spinner
+        android:id="@+id/spinner5"
+        android:paddingTop="5dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:paddingTop="5dp"
+        android:background="@android:color/darker_gray"/>
+
+    <TextView
+        android:id="@+id/community_events"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Participation in social/community events"/>
+
+    <Spinner
+        android:id="@+id/spinner6"
+        android:paddingTop="5dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:paddingTop="5dp"
+        android:background="@android:color/darker_gray"/>
+
+    <TextView
+        android:id="@+id/feelingsafe_id"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Feeling safe at Home, community   and School "/>
+
+    <Spinner
+        android:id="@+id/spinner7"
+        android:paddingTop="5dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:paddingTop="5dp"
+        android:background="@android:color/darker_gray"/>
+
+    <TextView
+        android:id="@+id/Social_interaction"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Social interaction with peers"/>
+
+    <Spinner
+        android:id="@+id/spinner8"
+        android:paddingTop="5dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:paddingTop="5dp"
+        android:background="@android:color/darker_gray"/>
+
+    <TextView
+        android:id="@+id/Personal_hygiene"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Personal hygiene of the child"/>
+
+    <Spinner
+        android:id="@+id/spinner9"
+        android:paddingTop="5dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:paddingTop="5dp"
+        android:background="@android:color/darker_gray"/>
+
+    <Button
+        android:id="@+id/intentify_button"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dip"
+        android:background="@color/btn_login"
+        android:text="Submit"
+        android:textColor="@color/btn_login_bg" />
+
+
+</LinearLayout>
+
+</ScrollView>
