@@ -7,4 +7,3 @@ urlpatterns = patterns('',
                        url(r'^profile', views.register_profile),
                        )
 
-urlpatterns = format_suffix_patterns(urlpatterns)

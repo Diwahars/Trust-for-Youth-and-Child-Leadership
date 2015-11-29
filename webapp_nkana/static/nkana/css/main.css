@@ -100,3 +100,158 @@ body{
 #nav li:hover ul li a:hover{ /* Here we define the most explicit hover states--what happens when you hover each individual link. */
     background:#333;
 }
+
+/*  header-questionaries */
+.header-questionaries{
+
+}
+
+.big {
+  font-size: 1.2em;
+}
+
+.small {
+  font-size: .7em;
+}
+
+.square {
+  width: .7em;
+  height: .7em;
+  margin: .5em;
+  display: inline-block;
+}
+
+/* Custom dropdown */
+.custom-dropdown {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+ margin: 10px; /* demo only */
+ margin-right: 180px;
+}
+
+.custom-dropdown select {
+  background-color: #2A88AD;
+  color: #fff;
+  font-size: inherit;
+  padding: .5em;
+  padding-right: 2.3em;
+  border: 0;
+  margin: 0;
+  border-radius: 3px;
+  text-indent: 0.01px;
+  text-overflow: '';
+  -webkit-appearance: button; /* hide default arrow in chrome OSX */
+}
+
+.custom-dropdown::before,
+.custom-dropdown::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+}
+
+.custom-dropdown::after { /*  Custom dropdown arrow */
+  content: "\25BC";
+  height: 1em;
+  font-size: .625em;
+  line-height: 1;
+  right: 1.2em;
+  top: 50%;
+  margin-top: -.5em;
+}
+
+.custom-dropdown::before { /*  Custom dropdown arrow cover */
+  width: 2em;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  border-radius: 0 3px 3px 0;
+}
+
+.custom-dropdown select[disabled] {
+  color: rgba(0,0,0,.3);
+}
+
+.custom-dropdown select[disabled]::after {
+  color: rgba(0,0,0,.1);
+}
+
+.custom-dropdown::before {
+  background-color: rgba(0,0,0,.15);
+}
+
+.custom-dropdown::after {
+  color: rgba(0,0,0,.4);
+}
+.indicator{
+	font-size:14px;font-weight: bold;
+	margin-top:25px;
+}
+.remarks-input{
+	border-radius:4px;
+}
+.header-rating{
+	margin-left:25px;
+}
+.notify-rating{
+	    margin-bottom: 58px;
+    font-size: 16px;
+    font-weight: bold;
+}
+.questionaries-bg{
+	position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 0;
+    height: 2230px;
+    width: 100%;
+}
+.container{position:relative;}
+
+.report-title{
+	font-size: 16px;
+    width: 405px;
+	font-weight: bold;
+}
+
+.hd-report{
+	text-align: center;
+    margin-bottom: 35px;
+    font-weight: bold;
+    text-decoration: underline;
+}
+.row{
+	margin-bottom:10px;
+}
+.report-input .custom-dropdown{
+	margin:0;
+}
+.report-input, .report-title{
+	margin-bottom: 30px;
+}
+.drpdwn select{padding-right: 2em;
+}
+.outcome-meeting{
+	border-radius: 5px;
+}
+.button-section input[type="submit"]{
+    background: #2A88AD;
+    padding: 8px 20px 8px 20px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    color: #fff;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.12);
+    font: normal 30px 'Bitter', serif;
+    -moz-box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);
+    -webkit-box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);
+    box-shadow: inset 0px 2px 2px 0px rgba(255, 255, 255, 0.17);
+    border: 1px solid #257C9E;
+    font-size: 15px;
+}
+.button-section{
+	    text-align: center;
+    margin-top: 27px;
+}
+

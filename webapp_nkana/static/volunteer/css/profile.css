@@ -168,4 +168,26 @@ position:relative;
                 font-weight:bold;
 }
 
+
+.left-content{
+                border-right: 1px solid gray;
+}
+.mentor-interest{
+                min-height:600px;
+}
+.mentor-title, .volunteer-title, .Child-title{
+text-align:center;
+font-weight:bold;
+}
+.next-meet-lb, .pre-meet-lb, .fb-meet-lb{
+                width:170px;
+                font-weight:bold;
+}
+.feedback-child h4{
+                font-weight:bold;
+}
+.volutere-profile ,.Child-profile{
+                margin-bottom:10px;
+}
+
 /* end */
