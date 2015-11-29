@@ -30,16 +30,17 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.nkana.app.R;
+
 /**
  * Created by chokkar
  */
-public class HelpFragment extends Fragment {
+public class TrackerFragment extends Fragment {
 
     private boolean mSearchCheck;
     private static final String TEXT_FRAGMENT = "TEXT_FRAGMENT";
 
-	public static HelpFragment newInstance(String text){
-		HelpFragment mFragment = new HelpFragment();
+	public static TrackerFragment newInstance(String text){
+		TrackerFragment mFragment = new TrackerFragment();
 		Bundle mBundle = new Bundle();
 		mBundle.putString(TEXT_FRAGMENT, text);
 		mFragment.setArguments(mBundle);
@@ -50,10 +51,8 @@ public class HelpFragment extends Fragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		// TODO Auto-generated method stub		
-		View rootView = inflater.inflate(R.layout.fragment_help, container, false);
+		View rootView = inflater.inflate(R.layout.tracker_volunteer, container, false);
 
-        TextView mTxtTitle = (TextView) rootView.findViewById(R.id.txtTitle);
-        mTxtTitle.setText(getArguments().getString(TEXT_FRAGMENT));
 
 		rootView.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT,LayoutParams.MATCH_PARENT ));		
 		return rootView;		

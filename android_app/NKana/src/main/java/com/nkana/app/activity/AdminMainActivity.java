@@ -23,10 +23,8 @@ import com.nkana.app.fragment.MembersSetupFragment;
 import com.nkana.app.fragment.PlacesFragment;
 import com.nkana.app.fragment.RemindersFragment;
 import com.nkana.app.fragment.ViewPagerFragment;
-import com.nkana.app.model.GeneralError;
 import com.nkana.app.network.Responses.RegisterResponse;
 import com.nkana.app.network.Responses.UpdateProfileResponse;
-import com.nkana.app.network.Responses.UtilizationResponse;
 import com.nkana.app.network.RestClient;
 import com.nkana.app.network.RestError.RestLoginError;
 
@@ -89,10 +87,11 @@ public class AdminMainActivity extends NavigationLiveo implements OnItemClickLis
         if (id == R.id.action_logout) {
             logout();
             return true;
-        } else if (id == R.id.action_update){
-            Intent intent = new Intent(mContext, UpdateProfile.class);
-            startActivity(intent);
         }
+//        else if (id == R.id.action_update){
+//            Intent intent = new Intent(mContext, UpdateProfile.class);
+//            startActivity(intent);
+//        }
 
         return super.onOptionsItemSelected(item);
     }
@@ -157,12 +156,12 @@ public class AdminMainActivity extends NavigationLiveo implements OnItemClickLis
 
         // Creating items navigation
         mHelpLiveo = new HelpLiveo();
-        mHelpLiveo.add(getString(R.string.history), R.mipmap.ic_inbox_black_24dp);
+        mHelpLiveo.add(getString(R.string.questioner), R.mipmap.ic_inbox_black_24dp);
 //        mHelpLiveo.addSubHeader(getString(R.string.categories)); //Item subHeader
         mHelpLiveo.add(getString(R.string.monitor), R.mipmap.ic_star_black_24dp);
-        mHelpLiveo.add(getString(R.string.statistics), R.mipmap.ic_send_black_24dp);
+        mHelpLiveo.add(getString(R.string.tracker), R.mipmap.ic_send_black_24dp);
         mHelpLiveo.addSeparator(); // Item separator
-        mHelpLiveo.add(getString(R.string.help), R.mipmap.ic_report_black_24dp);
+        mHelpLiveo.add(getString(R.string.about), R.mipmap.ic_report_black_24dp);
 
         //{optional} - Header Customization - method customHeader
 //        View mCustomHeader = getLayoutInflater().inflate(R.layout.custom_header_user, this.getListView(), false);

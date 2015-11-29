@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/bg_login"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical">
+
+        <com.malmstein.floatinghints.FloatingHintEditTextLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/form_horizontal_padding"
+            app:floatingHintInAnimation="@anim/abc_fade_in"
+            app:floatingHintOutAnimation="@anim/abc_fade_out"
+            app:floatingHintTextAppearance="@style/FloatLabel.Label">
+
+            <EditText
+                android:id="@+id/meeting_id"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:hint="Place of meeting"
+                android:inputType="textCapWords"
+                android:padding="10dp"
+                android:singleLine="true"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white" />
+        </com.malmstein.floatinghints.FloatingHintEditTextLayout>
+
+        <com.malmstein.floatinghints.FloatingHintEditTextLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/form_horizontal_padding"
+            app:floatingHintInAnimation="@anim/abc_fade_in"
+            app:floatingHintOutAnimation="@anim/abc_fade_out"
+            app:floatingHintTextAppearance="@style/FloatLabel.Label">
+
+            <EditText
+                android:id="@+id/lastname"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:hint="Meeting Agenda"
+                android:inputType="textCapWords"
+                android:padding="10dp"
+                android:singleLine="true"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white" />
+        </com.malmstein.floatinghints.FloatingHintEditTextLayout>
+
+        <com.malmstein.floatinghints.FloatingHintEditTextLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/form_horizontal_padding"
+            app:floatingHintInAnimation="@anim/abc_fade_in"
+            app:floatingHintOutAnimation="@anim/abc_fade_out"
+            app:floatingHintTextAppearance="@style/FloatLabel.Label">
+
+            <EditText
+                android:id="@+id/Outcome_id"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:hint="Outcome of Meeting"
+                android:inputType="textCapWords"
+                android:padding="10dp"
+                android:singleLine="true"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white" />
+        </com.malmstein.floatinghints.FloatingHintEditTextLayout>
+
+        <com.malmstein.floatinghints.FloatingHintEditTextLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/form_horizontal_padding"
+            app:floatingHintInAnimation="@anim/abc_fade_in"
+            app:floatingHintOutAnimation="@anim/abc_fade_out"
+            app:floatingHintTextAppearance="@style/FloatLabel.Label">
+
+            <EditText
+                android:id="@+id/accomplishment"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:hint="Key Accomplishment"
+                android:inputType="textCapWords"
+                android:padding="10dp"
+                android:singleLine="true"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white" />
+        </com.malmstein.floatinghints.FloatingHintEditTextLayout>
+
+        <com.malmstein.floatinghints.FloatingHintEditTextLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/form_horizontal_padding"
+            app:floatingHintInAnimation="@anim/abc_fade_in"
+            app:floatingHintOutAnimation="@anim/abc_fade_out"
+            app:floatingHintTextAppearance="@style/FloatLabel.Label">
+
+            <EditText
+                android:id="@+id/connections_id"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:hint="Any new Connections"
+                android:inputType="textCapWords"
+                android:padding="10dp"
+                android:singleLine="true"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white" />
+        </com.malmstein.floatinghints.FloatingHintEditTextLayout>
+
+        <com.malmstein.floatinghints.FloatingHintEditTextLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/form_horizontal_padding"
+            app:floatingHintInAnimation="@anim/abc_fade_in"
+            app:floatingHintOutAnimation="@anim/abc_fade_out"
+            app:floatingHintTextAppearance="@style/FloatLabel.Label">
+
+            <EditText
+                android:id="@+id/Purpose_id"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:hint="Purpose of Connection"
+                android:inputType="textCapWords"
+                android:padding="10dp"
+                android:singleLine="true"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white" />
+        </com.malmstein.floatinghints.FloatingHintEditTextLayout>
+
+        <com.malmstein.floatinghints.FloatingHintEditTextLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/form_horizontal_padding"
+            app:floatingHintInAnimation="@anim/abc_fade_in"
+            app:floatingHintOutAnimation="@anim/abc_fade_out"
+            app:floatingHintTextAppearance="@style/FloatLabel.Label">
+
+            <EditText
+                android:id="@+id/learnings_id"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:hint="Key learnings for Mentee"
+                android:inputType="textCapWords"
+                android:padding="10dp"
+                android:singleLine="true"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white" />
+        </com.malmstein.floatinghints.FloatingHintEditTextLayout>
+
+        <com.malmstein.floatinghints.FloatingHintEditTextLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/form_horizontal_padding"
+            app:floatingHintInAnimation="@anim/abc_fade_in"
+            app:floatingHintOutAnimation="@anim/abc_fade_out"
+            app:floatingHintTextAppearance="@style/FloatLabel.Label">
+
+            <EditText
+                android:id="@+id/volunteer_id"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:hint="Key Challenges faced by volunteer"
+                android:inputType="textCapWords"
+                android:padding="10dp"
+                android:singleLine="true"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white" />
+        </com.malmstein.floatinghints.FloatingHintEditTextLayout>
+
+
+        <com.malmstein.floatinghints.FloatingHintEditTextLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/form_horizontal_padding"
+            app:floatingHintInAnimation="@anim/abc_fade_in"
+            app:floatingHintOutAnimation="@anim/abc_fade_out"
+            app:floatingHintTextAppearance="@style/FloatLabel.Label">
+
+            <EditText
+                android:id="@+id/mentee_id"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:hint="Key Challenges faced by mentee"
+                android:inputType="textCapWords"
+                android:padding="10dp"
+                android:singleLine="true"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white" />
+        </com.malmstein.floatinghints.FloatingHintEditTextLayout>
+
+        <com.malmstein.floatinghints.FloatingHintEditTextLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/form_horizontal_padding"
+            app:floatingHintInAnimation="@anim/abc_fade_in"
+            app:floatingHintOutAnimation="@anim/abc_fade_out"
+            app:floatingHintTextAppearance="@style/FloatLabel.Label">
+
+            <EditText
+                android:id="@+id/faced_by_mentor"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:hint="Key Challenges faced by mentor"
+                android:inputType="textCapWords"
+                android:padding="10dp"
+                android:singleLine="true"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white" />
+        </com.malmstein.floatinghints.FloatingHintEditTextLayout>
+
+
+
+        <Button
+            android:id="@+id/registerButton"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dip"
+            android:background="@color/btn_login_bg"
+            android:text="Submit"
+            android:textColor="@color/btn_login" />
+
+    </LinearLayout>
+
+</ScrollView>

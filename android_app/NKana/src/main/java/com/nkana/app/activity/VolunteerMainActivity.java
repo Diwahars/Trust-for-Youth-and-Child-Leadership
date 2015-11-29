@@ -1,5 +1,8 @@
 package com.nkana.app.activity;
 
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -16,11 +19,11 @@ import android.widget.Toast;
 import com.nkana.app.Constants.IConstants;
 import com.nkana.app.R;
 import com.nkana.app.data.DBConnection;
+import com.nkana.app.fragment.GraphSetupFragment;
 import com.nkana.app.fragment.GroupSetupFragment;
-import com.nkana.app.fragment.MembersSetupFragment;
-import com.nkana.app.fragment.PlacesFragment;
-import com.nkana.app.fragment.RemindersFragment;
-import com.nkana.app.fragment.ViewPagerFragment;
+import com.nkana.app.fragment.AboutFragment;
+import com.nkana.app.fragment.QuestionerFragment;
+import com.nkana.app.fragment.TrackerFragment;
 import com.nkana.app.network.Responses.RegisterResponse;
 import com.nkana.app.network.Responses.UpdateProfileResponse;
 import com.nkana.app.network.RestClient;
@@ -61,12 +64,35 @@ public class VolunteerMainActivity extends NavigationLiveo implements OnItemClic
         dbConnection = new DBConnection(mContext);
         preferences = getSharedPreferences(IConstants.AUTH_TOKEN, MODE_PRIVATE);
         authKey = preferences.getString(IConstants.AUTHORIZATION, null);
-        if (dbConnection.checkUserAvailable()) {
-            checkUserProfile();
-        } else {
-//            getProfile();
-        }
+        notification();
+//        if (dbConnection.checkUserAvailable()) {
+//            checkUserProfile();
+//        } else {
+////            getProfile();
+//        }
     }
+
+
+    private void notification(){
+        Intent intent = new Intent(this, VolunteerMainActivity.class);
+        // use System.currentTimeMillis() to have a unique ID for the pending intent
+        PendingIntent pIntent = PendingIntent.getActivity(this, (int) System.currentTimeMillis(), intent, 0);
+
+        // build notification
+// the addAction re-use the same intent to keep the example short
+        Notification n  = new Notification.Builder(this)
+                .setContentTitle("NKana Notification")
+                .setContentText("The Tracker not updated")
+                .setSmallIcon(R.mipmap.ic_stat_nkana_logo)
+                .setContentIntent(pIntent)
+                .setAutoCancel(true).build();
+        NotificationManager notificationManager =
+                (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+
+        notificationManager.notify(0,n);
+    }
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -81,10 +107,11 @@ public class VolunteerMainActivity extends NavigationLiveo implements OnItemClic
         if (id == R.id.action_logout) {
             logout();
             return true;
-        } else if (id == R.id.action_update){
-            Intent intent = new Intent(mContext, UpdateProfile.class);
-            startActivity(intent);
         }
+//        else if (id == R.id.action_update){
+//            Intent intent = new Intent(mContext, UpdateProfile.class);
+//            startActivity(intent);
+//        }
 
         return super.onOptionsItemSelected(item);
     }
@@ -149,12 +176,12 @@ public class VolunteerMainActivity extends NavigationLiveo implements OnItemClic
 
         // Creating items navigation
         mHelpLiveo = new HelpLiveo();
-        mHelpLiveo.add(getString(R.string.history), R.mipmap.ic_inbox_black_24dp);
-//        mHelpLiveo.addSubHeader(getString(R.string.categories)); //Item subHeader
         mHelpLiveo.add(getString(R.string.monitor), R.mipmap.ic_star_black_24dp);
-        mHelpLiveo.add(getString(R.string.statistics), R.mipmap.ic_send_black_24dp);
+        mHelpLiveo.add(getString(R.string.questioner), R.mipmap.ic_inbox_black_24dp);
+//        mHelpLiveo.addSubHeader(getString(R.string.categories)); //Item subHeader
+        mHelpLiveo.add(getString(R.string.tracker), R.mipmap.ic_send_black_24dp);
         mHelpLiveo.addSeparator(); // Item separator
-        mHelpLiveo.add(getString(R.string.help), R.mipmap.ic_report_black_24dp);
+        mHelpLiveo.add(getString(R.string.about), R.mipmap.ic_report_black_24dp);
 
         //{optional} - Header Customization - method customHeader
 //        View mCustomHeader = getLayoutInflater().inflate(R.layout.custom_header_user, this.getListView(), false);
@@ -203,25 +230,29 @@ public class VolunteerMainActivity extends NavigationLiveo implements OnItemClic
 
         switch (position){
             case 0:
-                mFragment = GroupSetupFragment.newInstance(mHelpLiveo.get(position).getName());
+                mFragment = GraphSetupFragment.newInstance(mHelpLiveo.get(position).getName());
                 updateTilteBar(position);
                 break;
             case 1:
-                mFragment = PlacesFragment.newInstance(mHelpLiveo.get(position).getName());
+                mFragment = QuestionerFragment.newInstance(mHelpLiveo.get(position).getName());
                 updateTilteBar(position);
                 break;
             case 2:
-                mFragment = MembersSetupFragment.newInstance(mHelpLiveo.get(position).getName());
+                mFragment = TrackerFragment.newInstance(mHelpLiveo.get(position).getName());
                 updateTilteBar(position);
                 break;
             case 3:
-                mFragment = RemindersFragment.newInstance(mHelpLiveo.get(position).getName());
+                mFragment = AboutFragment.newInstance(mHelpLiveo.get(position).getName());
                 updateTilteBar(position);
                 break;
             case 4:
-                mFragment = new ViewPagerFragment();
+                mFragment = AboutFragment.newInstance(mHelpLiveo.get(position).getName());
                 updateTilteBar(position);
                 break;
+//            case 4:
+//                mFragment = new ViewPagerFragment();
+//                updateTilteBar(position);
+//                break;
             default:
                 mFragment = GroupSetupFragment.newInstance(mHelpLiveo.get(position).getName());
                 updateTilteBar(position);
